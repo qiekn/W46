@@ -1,5 +1,4 @@
-﻿
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {

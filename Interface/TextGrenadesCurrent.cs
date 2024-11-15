@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Globalization;
 
 namespace InfimaGames.LowPolyShooterPack.Interface

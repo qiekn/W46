@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using InfimaGames.LowPolyShooterPack;
 using Random = UnityEngine.Random;

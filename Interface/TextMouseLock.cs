@@ -1,5 +1,4 @@
-﻿
-namespace InfimaGames.LowPolyShooterPack.Interface
+﻿namespace InfimaGames.LowPolyShooterPack.Interface
 {
     /// <summary>
     /// This component handles warning developers whether their mouse is locked or not by

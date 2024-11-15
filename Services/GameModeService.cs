@@ -1,5 +1,4 @@
-﻿
-namespace InfimaGames.LowPolyShooterPack
+﻿namespace InfimaGames.LowPolyShooterPack
 {
     /// <summary>
     /// Game Mode Service.
