@@ -4,191 +4,110 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Character Abstract Behaviour.
-    /// </summary>
+    // Character Abstract Behaviour.
     public abstract class CharacterBehaviour : MonoBehaviour
     {
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
         protected virtual void Awake(){}
-        /// <summary>
-        /// Start.
-        /// </summary>
         protected virtual void Start(){}
-
-        /// <summary>
-        /// Update.
-        /// </summary>
         protected virtual void Update(){}
-        /// <summary>
-        /// LateUpdate.
-        /// </summary>
         protected virtual void LateUpdate(){}
 
         #endregion
         
         #region GETTERS
         
-        /// <summary>
-        /// This function should return the amount of shots that the character has fired in succession.
-        /// Using this value for applying recoil, and for modifying spread is what we have this function for.
-        /// </summary>
-        /// <returns></returns>
+        // This function should return the amount of shots that the character has fired in succession.
+        // Using this value for applying recoil, and for modifying spread is what we have this function for.
         public abstract int GetShotsFired();
-        /// <summary>
-        /// Returns true when the character's weapons are lowered.
-        /// </summary>
+        // Returns true when the character's weapons are lowered.
         public abstract bool IsLowered();
 
-        /// <summary>
-        /// Returns the player character's main camera.
-        /// </summary>
+        // Returns the player character's main camera.
         public abstract Camera GetCameraWorld();
-        /// <summary>
-        /// Returns the player character's weapon camera.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the player character's weapon camera.
         public abstract Camera GetCameraDepth();
         
-        /// <summary>
-        /// Returns a reference to the Inventory component.
-        /// </summary>
+        // Returns a reference to the Inventory component.
         public abstract InventoryBehaviour GetInventory();
 
-        /// <summary>
-        /// Returns the current amount of grenades left.
-        /// </summary>
+        // Returns the current amount of grenades left.
         public abstract int GetGrenadesCurrent();
-        /// <summary>
-        /// Returns the total amount of grenades left.
-        /// </summary>
+        // Returns the total amount of grenades left.
         public abstract int GetGrenadesTotal();
 
-        /// <summary>
-        /// Returns true if the character is running.
-        /// </summary>
+        // Returns true if the character is running.
         public abstract bool IsRunning();
-        /// <summary>
-        /// Returns true if the character has a weapon that is holstered in their hands.
-        /// </summary>
+        // Returns true if the character has a weapon that is holstered in their hands.
         public abstract bool IsHolstered();
 
-        /// <summary>
-        /// Returns true if the character is crouching.
-        /// </summary>
+        // Returns true if the character is crouching.
         public abstract bool IsCrouching();
-        /// <summary>
-        /// Returns true if the character is reloading.
-        /// </summary>
+        // Returns true if the character is reloading.
         public abstract bool IsReloading();
 
-        /// <summary>
-        /// Returns true if the character is throwing a grenade.
-        /// </summary>
+        // Returns true if the character is throwing a grenade.
         public abstract bool IsThrowingGrenade();
-        /// <summary>
-        /// Returns true if the character is meleeing.
-        /// </summary>
+        // Returns true if the character is meleeing.
         public abstract bool IsMeleeing();
         
-        /// <summary>
-        /// Returns true if the character is aiming.
-        /// </summary>
+        // Returns true if the character is aiming.
         public abstract bool IsAiming();
-        /// <summary>
-        /// Returns true if the game cursor is locked.
-        /// </summary>
+        // Returns true if the game cursor is locked.
         public abstract bool IsCursorLocked();
 
-        /// <summary>
-        /// Returns true if the tutorial text should be visible on the screen.
-        /// </summary>
+        // Returns true if the tutorial text should be visible on the screen.
         public abstract bool IsTutorialTextVisible();
 
-        /// <summary>
-        /// Returns the Movement Input.
-        /// </summary>
+        // Returns the Movement Input.
         public abstract Vector2 GetInputMovement();
-        /// <summary>
-        /// Returns the Look Input.
-        /// </summary>
+        // Returns the Look Input.
         public abstract Vector2 GetInputLook();
 
-        /// <summary>
-        /// Returns the audio clip played when the character throws a grenade.
-        /// </summary>
+        // Returns the audio clip played when the character throws a grenade.
         public abstract AudioClip[] GetAudioClipsGrenadeThrow();
-        /// <summary>
-        /// Returns the audio clip played when the character melees.
-        /// </summary>
+        // Returns the audio clip played when the character melees.
         public abstract AudioClip[] GetAudioClipsMelee();
         
-        /// <summary>
-        /// Returns true if the character is inspecting.
-        /// </summary>
+        // Returns true if the character is inspecting.
         public abstract bool IsInspecting();
-        /// <summary>
-        /// Returns true if the player is holding the fire button.
-        /// </summary>
-        /// <returns></returns>
+        // Returns true if the player is holding the fire button.
         public abstract bool IsHoldingButtonFire();
         
         #endregion
 
         #region ANIMATION
 
-        /// <summary>
-        /// Ejects a casing from the equipped weapon.
-        /// </summary>
+        // 弹出一个弹壳
+        // Ejects a casing from the equipped weapon.
         public abstract void EjectCasing();
-        /// <summary>
-        /// Fills the character's equipped weapon's ammunition by a certain amount, or fully if set to -1.
-        /// </summary>
+        // 补充弹药
+        // Fills the character's equipped weapon's ammunition by a certain amount, or fully if set to -1.
         public abstract void FillAmmunition(int amount);
 
-        /// <summary>
-        /// Throws a grenade.
-        /// </summary>
+        // Throws a grenade.
         public abstract void Grenade();
-        /// <summary>
-        /// Sets the equipped weapon's magazine to be active or inactive!
-        /// </summary>
+        // Sets the equipped weapon's magazine to be active or inactive!
         public abstract void SetActiveMagazine(int active);
         
-        /// <summary>
-        /// Bolt Animation Ended.
-        /// </summary>
+        // Bolt Animation Ended.
         public abstract void AnimationEndedBolt();
-        /// <summary>
-        /// Reload Animation Ended.
-        /// </summary>
+        // Reload Animation Ended.
         public abstract void AnimationEndedReload();
 
-        /// <summary>
-        /// Grenade Throw Animation Ended.
-        /// </summary>
+        // Grenade Throw Animation Ended.
         public abstract void AnimationEndedGrenadeThrow();
-        /// <summary>
-        /// Melee Animation Ended.
-        /// </summary>
+        // Melee Animation Ended.
         public abstract void AnimationEndedMelee();
 
-        /// <summary>
-        /// Inspect Animation Ended.
-        /// </summary>
+        // Inspect Animation Ended.
         public abstract void AnimationEndedInspect();
-        /// <summary>
-        /// Holster Animation Ended.
-        /// </summary>
+        // 收枪动画结束
+        // Holster Animation Ended.
         public abstract void AnimationEndedHolster();
 
-        /// <summary>
-        /// Sets the equipped weapon's slide back pose.
-        /// </summary>
+        // Sets the equipped weapon's slide back pose.
         public abstract void SetSlideBack(int back);
 
         public abstract void SetActiveKnife(int active);
