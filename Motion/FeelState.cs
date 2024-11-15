@@ -3,34 +3,22 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// FeelState. Contains information on different things that happen in a single state.
-    /// </summary>
+    // FeelState. Contains information on different things that happen in a single state.
     [Serializable]
     public struct FeelState
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// Offset.
-        /// </summary>
+        // Offset.
         public FeelStateOffset Offset => offset;
-        /// <summary>
-        /// SwayData.
-        /// </summary>
+        // SwayData.
         public SwayData SwayData => swayData;
 
-        /// <summary>
-        /// JumpingCurves.
-        /// </summary>
+        // JumpingCurves.
         public ACurves JumpingCurves => jumpingCurves;
-        /// <summary>
-        /// FallingCurves.
-        /// </summary>
+        // FallingCurves.
         public ACurves FallingCurves => fallingCurves;
-        /// <summary>
-        /// LandingCurves.
-        /// </summary>
+        // LandingCurves.
         public ACurves LandingCurves => landingCurves;
         
         #endregion

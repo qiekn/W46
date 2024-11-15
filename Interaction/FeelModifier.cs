@@ -11,9 +11,7 @@
 //         [SerializeField]
 //         private Animator pivotAnimator;
 //         
-//         /// <summary>
-//         /// Interact.
-//         /// </summary>
+//         // Interact.
 //         public override void Interact(GameObject actor = null)
 //         {
 //             //TODO: Clean this entire component.

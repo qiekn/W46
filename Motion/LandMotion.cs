@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LandMotion. This component plays the landing curves when a character lands.
-    /// </summary>
+    // LandMotion. This component plays the landing curves when a character lands.
     public class LandMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -31,32 +29,22 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// The location spring.
-        /// </summary>
+        // The location spring.
         private readonly Spring springLocation = new Spring();
-        /// <summary>
-        /// The rotation spring.
-        /// </summary>
+        // The rotation spring.
         private readonly Spring springRotation = new Spring();
 
-        /// <summary>
-        /// Represents the curves currently being played by this component.
-        /// </summary>
+        // Represents the curves currently being played by this component.
         private ACurves playedCurves;
 
-        /// <summary>
-        /// Time.time at which the character last landed on the ground.
-        /// </summary>
+        // Time.time at which the character last landed on the ground.
         private float landingTime;
         
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check References.
@@ -110,9 +98,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check References.
@@ -122,9 +108,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return springLocation.Evaluate(playedCurves.LocationSpring);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {
             //Check References.

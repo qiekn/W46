@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LoweredMotion. This class drives the procedural offsets that lower a weapon.
-    /// </summary>
+    // LoweredMotion. This class drives the procedural offsets that lower a weapon.
     public class LoweredMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -30,29 +28,21 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Lowered Spring Location. Used to get the GameObject into a changed lowered
-        /// pose.
-        /// </summary>
+        // Lowered Spring Location. Used to get the GameObject into a changed lowered
+        // pose.
         private readonly Spring loweredSpringLocation = new Spring();
-        /// <summary>
-        /// Recoil Spring Rotation. Used to get the GameObject into a changed lowered
-        /// pose.
-        /// </summary>
+        // Recoil Spring Rotation. Used to get the GameObject into a changed lowered
+        // pose.
         private readonly Spring loweredSpringRotation = new Spring();
 
-        /// <summary>
-        /// LowerData for the current equipped weapon. If there's none, then there's no lowering, I guess.
-        /// </summary>
+        // LowerData for the current equipped weapon. If there's none, then there's no lowering, I guess.
         private LowerData lowerData;
         
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check References.
@@ -85,9 +75,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check References.
@@ -103,9 +91,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return loweredSpringLocation.Evaluate(lowerData.Interpolation);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {
             //Check References.

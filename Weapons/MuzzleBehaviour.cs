@@ -2,52 +2,34 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Muzzle Abstract Class.
-    /// </summary>
+    // Muzzle Abstract Class.
     public abstract class MuzzleBehaviour : MonoBehaviour
     {
         #region GETTERS
 
-        /// <summary>
-        /// Returns the firing socket. This is the point that we use to fire the bullets.
-        /// </summary>
+        // Returns the firing socket. This is the point that we use to fire the bullets.
         public abstract Transform GetSocket();
 
-        /// <summary>
-        /// Returns the Sprite used on the Character's Interface.
-        /// </summary>
+        // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
-        /// <summary>
-        /// Returns the AudioClip to play when firing.
-        /// </summary>
+        // Returns the AudioClip to play when firing.
         public abstract AudioClip GetAudioClipFire();
         
-        /// <summary>
-        /// Returns the particle system to use when firing.
-        /// </summary>
+        // Returns the particle system to use when firing.
         public abstract ParticleSystem GetParticlesFire();
-        /// <summary>
-        /// Returns the number of particles to emit when firing.
-        /// </summary>
+        // Returns the number of particles to emit when firing.
         public abstract int GetParticlesFireCount();
 
-        /// <summary>
-        /// Returns the light component used when firing..
-        /// </summary>
+        // Returns the light component used when firing..
         public abstract Light GetFlashLight();
-        /// <summary>
-        /// Returns the time it takes for the light flash to be hidden.
-        /// </summary>
+        // Returns the time it takes for the light flash to be hidden.
         public abstract float GetFlashLightDuration();
 
         #endregion
 
         #region METHODS
 
-        /// <summary>
-        /// Plays all of the muzzle effects.
-        /// </summary>
+        // Plays all of the muzzle effects.
         public abstract void Effect(); 
 
         #endregion

@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Weapon Scope.
-    /// </summary>
+    // Weapon Scope.
     public class Scope : ScopeBehaviour
     {
         #region FIELDS SERIALIZED
@@ -65,23 +63,17 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Mesh Renderer.
-        /// </summary>
+        // Mesh Renderer.
         private MeshRenderer meshRenderer;
-        /// <summary>
-        /// Default scope material. We store it so we can re-apply it at any time, since it is
-        /// usually changed at runtime.
-        /// </summary>
+        // Default scope material. We store it so we can re-apply it at any time, since it is
+        // usually changed at runtime.
         private Material materialDefault;
 
         #endregion
 
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Cache Scope Renderer.
@@ -94,9 +86,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Cache default material.
             materialDefault = meshRenderer.materials[materialIndex];
         }
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         private void Start()
         {
             //Start at the default state.
@@ -107,45 +97,27 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        /// <summary>
-        /// GetMultiplierMouseSensitivity.
-        /// </summary>
+        // GetMultiplierMouseSensitivity.
         public override float GetMultiplierMouseSensitivity() => multiplierMouseSensitivity;
-        /// <summary>
-        /// GetMultiplierSpread.
-        /// </summary>
+        // GetMultiplierSpread.
         public override float GetMultiplierSpread() => multiplierSpread;
 
-        /// <summary>
-        /// GetOffsetAimingLocation.
-        /// </summary>
+        // GetOffsetAimingLocation.
         public override Vector3 GetOffsetAimingLocation() => offsetAimingLocation;
-        /// <summary>
-        /// GetOffsetAimingRotation.
-        /// </summary>
+        // GetOffsetAimingRotation.
         public override Vector3 GetOffsetAimingRotation() => offsetAimingRotation;
 
-        /// <summary>
-        /// GetFieldOfViewMultiplierAim.
-        /// </summary>
+        // GetFieldOfViewMultiplierAim.
         public override float GetFieldOfViewMultiplierAim() => fieldOfViewMultiplierAim;
-        /// <summary>
-        /// GetFieldOfViewMultiplierAimWeapon.
-        /// </summary>
+        // GetFieldOfViewMultiplierAimWeapon.
         public override float GetFieldOfViewMultiplierAimWeapon() => fieldOfViewMultiplierAimWeapon;
 
-        /// <summary>
-        /// GetSprite.
-        /// </summary>
+        // GetSprite.
         public override Sprite GetSprite() => sprite;
-        /// <summary>
-        /// GetSwayMultiplier.
-        /// </summary>
+        // GetSwayMultiplier.
         public override float GetSwayMultiplier() => swayMultiplier;
 
-        /// <summary>
-        /// Returns true if the Scope's Mesh Renderer could have this Material index.
-        /// </summary>
+        // Returns true if the Scope's Mesh Renderer could have this Material index.
         private bool HasMaterialIndex()
         {
             //Null check.
@@ -160,9 +132,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region METHODS
 
-        /// <summary>
-        /// OnAim.
-        /// </summary>
+        // OnAim.
         public override void OnAim()
         {
             //Make sure that the index can exist.
@@ -176,9 +146,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Update Materials.
             meshRenderer.materials = materials;
         }
-        /// <summary>
-        /// OnAimStop.
-        /// </summary>
+        // OnAimStop.
         public override void OnAimStop()
         {
             //Make sure that the index can exist.

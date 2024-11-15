@@ -2,17 +2,13 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// This class's main purpose is to hold the feel preset that is active
-    /// in the game at any given time, and allow others to access it.
-    /// </summary>
+    // This class's main purpose is to hold the feel preset that is active
+    // in the game at any given time, and allow others to access it.
     public class FeelManager : MonoBehaviour
     {
         #region PROPERTIES
         
-        /// <summary>
-        /// Preset.
-        /// </summary>
+        // Preset.
         public FeelPreset Preset
         {
             //Get.

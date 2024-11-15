@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Displays a material's name in the world.
-    /// </summary>
+    // Displays a material's name in the world.
     public class DisplayMaterialName : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -24,9 +22,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Material.
-        /// </summary>
+        // Material.
         private Material meshMaterial;
 
         #endregion

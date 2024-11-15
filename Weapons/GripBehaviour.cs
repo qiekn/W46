@@ -2,16 +2,12 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Grip Abstract Class.
-    /// </summary>
+    // Grip Abstract Class.
     public abstract class GripBehaviour : MonoBehaviour
     {
         #region GETTERS
 
-        /// <summary>
-        /// Returns the Sprite used on the Character's Interface.
-        /// </summary>
+        // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
 
         #endregion

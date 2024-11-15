@@ -2,31 +2,21 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Recoil Data. Used when playing recoil motions to have all the needed information
-    /// for that.
-    /// </summary>
+    // Recoil Data. Used when playing recoil motions to have all the needed information
+    // for that.
     [CreateAssetMenu(fileName = "SO_Recoil", menuName = "Infima Games/Low Poly Shooter Pack/Recoil Data", order = 0)]
     public class RecoilData : ScriptableObject
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// StandingStateMultiplier.
-        /// </summary>
+        // StandingStateMultiplier.
         public float StandingStateMultiplier => standingStateMultiplier;
-        /// <summary>
-        /// Standing Curves.
-        /// </summary>
+        // Standing Curves.
         public ACurves StandingState => standingState;
         
-        /// <summary>
-        /// AimingStateMultiplier.
-        /// </summary>
+        // AimingStateMultiplier.
         public float AimingStateMultiplier => aimingStateMultiplier;
-        /// <summary>
-        /// Aiming Curves.
-        /// </summary>
+        // Aiming Curves.
         public ACurves AimingState => aimingState;
         
         #endregion

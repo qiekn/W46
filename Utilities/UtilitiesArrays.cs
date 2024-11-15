@@ -2,22 +2,14 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Array Utilities.
-    /// </summary>
+    // Array Utilities.
     public static class UtilitiesArrays
     {
-        /// <summary>
-        /// Returns true if the array contains this index.
-        /// </summary>
+        // Returns true if the array contains this index.
         public static bool IsValidIndex<T>(this T[] array, int index) => array.Length > index && index >= 0;
-        /// <summary>
-        /// Returns true if the array is valid.
-        /// </summary>
+        // Returns true if the array is valid.
         public static bool IsValid<T>(this T[] array) => !array.Equals(null) && array.Length > 0;
-        /// <summary>
-        /// Returns a random audio clip from an array of clips.
-        /// </summary>
+        // Returns a random audio clip from an array of clips.
         public static T GetRandom<T>(this T[] array) => array[Random.Range(0, array.Length)];
     }
 }

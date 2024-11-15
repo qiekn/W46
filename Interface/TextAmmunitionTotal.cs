@@ -2,16 +2,12 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Total Ammunition Text.
-    /// </summary>
+    // Total Ammunition Text.
     public class TextAmmunitionTotal : ElementText
     {
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected override void Tick()
         {
             //Total Ammunition.

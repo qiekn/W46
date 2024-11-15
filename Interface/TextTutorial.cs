@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Interface component that hides or shows the tutorial text based on input.
-    /// </summary>
+    // Interface component that hides or shows the tutorial text based on input.
     public class TextTutorial : ElementText
     {
         #region FIELDS SERIALIZED

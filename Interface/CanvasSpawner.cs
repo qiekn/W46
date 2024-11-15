@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Player Interface.
-    /// </summary>
+    // Player Interface.
     public class CanvasSpawner : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -23,9 +21,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Spawn Interface.

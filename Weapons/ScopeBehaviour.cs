@@ -2,60 +2,42 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Scope Behaviour.
-    /// </summary>
+    // Scope Behaviour.
     public abstract class ScopeBehaviour : MonoBehaviour
     {
         #region GETTERS
 
-        /// <summary>
-        /// Returns the value of multiplierMouseSensitivity.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the value of multiplierMouseSensitivity.
+        // <returns></returns>
         public abstract float GetMultiplierMouseSensitivity();
         
-        /// <summary>
-        /// Returns the value of multiplierSpread.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the value of multiplierSpread.
+        // <returns></returns>
         public abstract float GetMultiplierSpread();
 
-        /// <summary>
-        /// Returns the aiming location offset.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the aiming location offset.
+        // <returns></returns>
         public abstract Vector3 GetOffsetAimingLocation();
-        /// <summary>
-        /// Returns the aiming rotation offset.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the aiming rotation offset.
+        // <returns></returns>
         public abstract Vector3 GetOffsetAimingRotation();
 
         public abstract float GetFieldOfViewMultiplierAim();
         public abstract float GetFieldOfViewMultiplierAimWeapon();
 
-        /// <summary>
-        /// Returns the Sprite used on the Character's Interface.
-        /// </summary>
+        // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
-        /// <summary>
-        /// Returns the value to multiply the weapon sway by while aiming through this scope.
-        /// </summary>
+        // Returns the value to multiply the weapon sway by while aiming through this scope.
         public abstract float GetSwayMultiplier();
 
         #endregion
 
         #region METHODS
 
-        /// <summary>
-        /// Called when the character using this scope aims through it.
-        /// </summary>
+        // Called when the character using this scope aims through it.
         public abstract void OnAim();
 
-        /// <summary>
-        /// Called when the character using this scope stops aiming through it.
-        /// </summary>
+        // Called when the character using this scope stops aiming through it.
         public abstract void OnAimStop();
 
         #endregion

@@ -2,38 +2,24 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Laser Abstract Class.
-    /// </summary>
+    // Laser Abstract Class.
     public abstract class LaserBehaviour : MonoBehaviour
     {
         #region GETTERS
 
-        /// <summary>
-        /// Returns the Sprite used on the Character's Interface.
-        /// </summary>
+        // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
         
-        /// <summary>
-        /// Returns true if this laser should be off while the character is running.
-        /// </summary>
+        // Returns true if this laser should be off while the character is running.
         public abstract bool GetTurnOffWhileRunning();
-        /// <summary>
-        /// Returns true if this laser should be off while the character is aiming.
-        /// </summary>
+        // Returns true if this laser should be off while the character is aiming.
         public abstract bool GetTurnOffWhileAiming();
 
-        /// <summary>
-        /// Toggles the laser.
-        /// </summary>
+        // Toggles the laser.
         public abstract void Toggle();
-        /// <summary>
-        /// Reapplies the laser.
-        /// </summary>
+        // Reapplies the laser.
         public abstract void Reapply();
-        /// <summary>
-        /// Hides the laser.
-        /// </summary>
+        // Hides the laser.
         public abstract void Hide();
 
         #endregion

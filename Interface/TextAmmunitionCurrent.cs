@@ -3,9 +3,7 @@ using System.Globalization;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Current Ammunition Text.
-    /// </summary>
+    // Current Ammunition Text.
     public class TextAmmunitionCurrent : ElementText
     {
         #region FIELDS SERIALIZED
@@ -28,9 +26,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected override void Tick()
         {
             //Current Ammunition.

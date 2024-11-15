@@ -2,14 +2,10 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Bootstraper.
-    /// </summary>
+    // Bootstraper.
     public static class Bootstraper
     {
-        /// <summary>
-        /// Initialize.
-        /// </summary>
+        // Initialize.
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void Initialize()
         {

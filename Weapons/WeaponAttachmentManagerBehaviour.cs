@@ -2,62 +2,40 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Weapon Attachment Manager Behaviour.
-    /// </summary>
+    // Weapon Attachment Manager Behaviour.
     public abstract class WeaponAttachmentManagerBehaviour : MonoBehaviour
     {
         #region UNITY FUNCTIONS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake(){}
 
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         protected virtual void Start(){}
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected virtual void Update(){}
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
         
         #region GETTERS
 
-        /// <summary>
-        /// Returns the equipped scope.
-        /// </summary>
+        // Returns the equipped scope.
         public abstract ScopeBehaviour GetEquippedScope();
-        /// <summary>
-        /// Returns the equipped scope default.
-        /// </summary>
+        // Returns the equipped scope default.
         public abstract ScopeBehaviour GetEquippedScopeDefault();
         
-        /// <summary>
-        /// Returns the equipped magazine.
-        /// </summary>
+        // Returns the equipped magazine.
         public abstract MagazineBehaviour GetEquippedMagazine();
-        /// <summary>
-        /// Returns the equipped muzzle.
-        /// </summary>
+        // Returns the equipped muzzle.
         public abstract MuzzleBehaviour GetEquippedMuzzle();
         
-        /// <summary>
-        /// Returns the equipped laser.
-        /// </summary>
+        // Returns the equipped laser.
         public abstract LaserBehaviour GetEquippedLaser();
-        /// <summary>
-        /// Returns the equipped grip.
-        /// </summary>
+        // Returns the equipped grip.
         public abstract GripBehaviour GetEquippedGrip();
         
         #endregion

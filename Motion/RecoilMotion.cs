@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// RecoilMotion. Produces procedural recoil motions and applies it!
-    /// </summary>
+    // RecoilMotion. Produces procedural recoil motions and applies it!
     public class RecoilMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -27,29 +25,21 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Recoil Spring Location. Used to apply location recoil to the camera.
-        /// We don't really use this one as much as the rotation one, since applying location changes to the
-        /// camera feels quite bad.
-        /// </summary>
+        // Recoil Spring Location. Used to apply location recoil to the camera.
+        // We don't really use this one as much as the rotation one, since applying location changes to the
+        // camera feels quite bad.
         private readonly Spring recoilSpringLocation = new Spring();
-        /// <summary>
-        /// Recoil Spring Rotation. Used to apply rotation recoil to the camera.
-        /// </summary>
+        // Recoil Spring Rotation. Used to apply rotation recoil to the camera.
         private readonly Spring recoilSpringRotation = new Spring();
 
-        /// <summary>
-        /// Current Recoil Curves. We apply these, so it is important that they are up to date.
-        /// </summary>
+        // Current Recoil Curves. We apply these, so it is important that they are up to date.
         private ACurves recoilCurves;
         
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check for reference errors.
@@ -174,9 +164,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check Reference.
@@ -186,9 +174,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return recoilSpringLocation.Evaluate(recoilCurves.LocationSpring);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {           
             //Check Reference.

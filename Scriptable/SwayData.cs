@@ -2,29 +2,21 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// ScriptableObject containing a location and rotation curve, along with settings to interpolate
-    /// them using the Spring class.
-    /// Very helpful for lots of procedural motions that use curves.
-    /// </summary>
+    // ScriptableObject containing a location and rotation curve, along with settings to interpolate
+    // them using the Spring class.
+    // Very helpful for lots of procedural motions that use curves.
     [CreateAssetMenu(fileName = "SO_SD_Default", menuName = "Infima Games/Low Poly Shooter Pack/Sway Data")]
     public class SwayData : ScriptableObject
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// Look.
-        /// </summary>
+        // Look.
         public SwayType Look => look;
 
-        /// <summary>
-        /// Movement.
-        /// </summary>
+        // Movement.
         public SwayType Movement => movement;
 
-        /// <summary>
-        /// SpringSettings.
-        /// </summary>
+        // SpringSettings.
         public SpringSettings SpringSettings => springSettings;
         
         #endregion

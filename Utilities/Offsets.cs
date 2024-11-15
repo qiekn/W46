@@ -3,55 +3,33 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Weapon Offsets.
-    /// </summary>
+    // Weapon Offsets.
     [Serializable]
     public struct Offsets
     {
-        /// <summary>
-        /// Standing Location.
-        /// </summary>
+        // Standing Location.
         public Vector3 StandingLocation => standingLocation;
-        /// <summary>
-        /// Standing Rotation.
-        /// </summary>
+        // Standing Rotation.
         public Vector3 StandingRotation => standingRotation;
         
-        /// <summary>
-        /// Aiming Location.
-        /// </summary>
+        // Aiming Location.
         public Vector3 AimingLocation => aimingLocation;
-        /// <summary>
-        /// Aiming Rotation.
-        /// </summary>
+        // Aiming Rotation.
         public Vector3 AimingRotation => aimingRotation;
         
-        /// <summary>
-        /// Running Location.
-        /// </summary>
+        // Running Location.
         public Vector3 RunningLocation => runningLocation;
-        /// <summary>
-        /// Running Rotation.
-        /// </summary>
+        // Running Rotation.
         public Vector3 RunningRotation => runningRotation;
         
-        /// <summary>
-        /// Crouching Location.
-        /// </summary>
+        // Crouching Location.
         public Vector3 CrouchingLocation => crouchingLocation;
-        /// <summary>
-        /// Crouching Rotation.
-        /// </summary>
+        // Crouching Rotation.
         public Vector3 CrouchingRotation => crouchingRotation;
         
-        /// <summary>
-        /// Action Location.
-        /// </summary>
+        // Action Location.
         public Vector3 ActionLocation => actionLocation;
-        /// <summary>
-        /// Action Rotation.
-        /// </summary>
+        // Action Rotation.
         public Vector3 ActionRotation => actionRotation;
         
         [Header("Standing Offset")]

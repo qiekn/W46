@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Handles all the Inverse Kinematics needed for our Character.
-    /// Very important. Uses Unity's IK code.
-    /// </summary>
+    // Handles all the Inverse Kinematics needed for our Character.
+    // Very important. Uses Unity's IK code.
     public class CharacterKinematics : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -72,13 +70,9 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Maintain Target Position Offset.
-        /// </summary>
+        // Maintain Target Position Offset.
         private bool maintainTargetPositionOffset;
-        /// <summary>
-        /// Maintain Target Rotation Offset.
-        /// </summary>
+        // Maintain Target Rotation Offset.
         private bool maintainTargetRotationOffset;
 
         private float alphaLeft;
@@ -89,18 +83,14 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region CONSTANTS
 
-        /// <summary>
-        /// Constant.
-        /// </summary>
+        // Constant.
         private const float kSqrEpsilon = 1e-8f;
 
         #endregion
         
         #region UNITY
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Get Left Constraint Alpha.
@@ -109,9 +99,7 @@ namespace InfimaGames.LowPolyShooterPack
             alphaRight = characterAnimator.GetFloat(AHashes.AlphaIKHandRight);
         }
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         private void LateUpdate()
         {
             //Check References.
@@ -132,9 +120,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region METHODS
         
-        /// <summary>
-        /// Computes the Inverse Kinematics for both arms.
-        /// </summary>
+        // Computes the Inverse Kinematics for both arms.
         private void Compute(float weightLeft = 1.0f, float weightRight = 1.0f)
         {
             //Compute Left Arm.
@@ -148,13 +134,11 @@ namespace InfimaGames.LowPolyShooterPack
                 armRightWeightRotation * weightRight);
         }
 
-        /// <summary>
-        /// Computes the Inverse Kinematics for one arm, or hierarchy.
-        /// </summary>
-        /// <param name="hierarchy">Arm Hierarchy. Root, Mid, Tip.</param>
-        /// <param name="target">IK Target.</param>
-        /// <param name="weightPosition">Position Weight.</param>
-        /// <param name="weightRotation">Rotation Weight.</param>
+        // Computes the Inverse Kinematics for one arm, or hierarchy.
+        // <param name="hierarchy">Arm Hierarchy. Root, Mid, Tip.</param>
+        // <param name="target">IK Target.</param>
+        // <param name="weightPosition">Position Weight.</param>
+        // <param name="weightRotation">Rotation Weight.</param>
         private void ComputeOnce(IReadOnlyList<Transform> hierarchy, Transform target, float weightPosition = 1.0f, float weightRotation = 1.0f)
         {
             Vector3 targetOffsetPosition = Vector3.zero;

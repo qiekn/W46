@@ -2,16 +2,12 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Makes an object face the main camera.
-    /// </summary>
+    // Makes an object face the main camera.
     public class FaceCamera : MonoBehaviour
     {
         #region FIELDS
 
-        /// <summary>
-        /// Main Camera Transform.
-        /// </summary>
+        // Main Camera Transform.
         private Transform cameraTransform;
 
         #endregion

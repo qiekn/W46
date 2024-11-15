@@ -5,25 +5,19 @@ using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Simple service locator for <see cref="IGameService"/> instances.
-    /// </summary>
+    // Simple service locator for <see cref="IGameService"/> instances.
     public class ServiceLocator
     {
-        /// <summary>
-        /// Currently registered services.
-        /// </summary>
+        // Currently registered services.
         private readonly Dictionary<string, IGameService> services = new Dictionary<string, IGameService>();
 
         public static ServiceLocator Current { get; private set; }
 
         public static void Initialize() { Current = new ServiceLocator(); }
 
-        /// <summary>
-        /// Gets the service instance of the given type.
-        /// </summary>
-        /// <typeparam name="T">The type of the service to lookup.</typeparam>
-        /// <returns>The service instance.</returns>
+        // Gets the service instance of the given type.
+        // <typeparam name="T">The type of the service to lookup.</typeparam>
+        // <returns>The service instance.</returns>
         public T Get<T>() where T : IGameService
         {
             string key = typeof(T).Name;
@@ -36,11 +30,9 @@ namespace InfimaGames.LowPolyShooterPack
             return (T)services[key];
         }
 
-        /// <summary>
-        /// Registers the service with the current service locator.
-        /// </summary>
-        /// <typeparam name="T">Service type.</typeparam>
-        /// <param name="service">Service instance.</param>
+        // Registers the service with the current service locator.
+        // <typeparam name="T">Service type.</typeparam>
+        // <param name="service">Service instance.</param>
         public void Register<T>(T service) where T : IGameService
         {
             string key = typeof(T).Name;
@@ -54,10 +46,8 @@ namespace InfimaGames.LowPolyShooterPack
             services.Add(key, service);
         }
 
-        /// <summary>
-        /// Unregisters the service from the current service locator.
-        /// </summary>
-        /// <typeparam name="T">Service type.</typeparam>
+        // Unregisters the service from the current service locator.
+        // <typeparam name="T">Service type.</typeparam>
         public void Unregister<T>() where T : IGameService
         {
             string key = typeof(T).Name;

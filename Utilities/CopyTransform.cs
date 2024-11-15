@@ -14,27 +14,21 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Local Transform.
-        /// </summary>
+        // Local Transform.
         private Transform local;
 
         #endregion
 
         #region UNITY FUNCTIONS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Cache local.
             local = transform;
         }
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Copy position.

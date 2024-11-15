@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Weapon Attachment Manager. Handles equipping and storing a Weapon's Attachments.
-    /// </summary>
+    // Weapon Attachment Manager. Handles equipping and storing a Weapon's Attachments.
     public class WeaponAttachmentManager : WeaponAttachmentManagerBehaviour
     {
         #region FIELDS SERIALIZED
@@ -95,34 +93,22 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Equipped Scope.
-        /// </summary>
+        // Equipped Scope.
         private ScopeBehaviour scopeBehaviour;
-        /// <summary>
-        /// Equipped Muzzle.
-        /// </summary>
+        // Equipped Muzzle.
         private MuzzleBehaviour muzzleBehaviour;
-        /// <summary>
-        /// Equipped Laser.
-        /// </summary>
+        // Equipped Laser.
         private LaserBehaviour laserBehaviour; 
-        /// <summary>
-        /// Equipped Grip.
-        /// </summary>
+        // Equipped Grip.
         private GripBehaviour gripBehaviour;
-        /// <summary>
-        /// Equipped Magazine.
-        /// </summary>
+        // Equipped Magazine.
         private MagazineBehaviour magazineBehaviour;
 
         #endregion
 
         #region UNITY FUNCTIONS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected override void Awake()
         {
             //Randomize. This allows us to spice things up a little!

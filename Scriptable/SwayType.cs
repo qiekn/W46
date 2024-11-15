@@ -2,21 +2,15 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// SwayType. Holds information on horizontal, vertical SwayDirection values for SwayMotion components to use.
-    /// </summary>
+    // SwayType. Holds information on horizontal, vertical SwayDirection values for SwayMotion components to use.
     [CreateAssetMenu(fileName = "SO_ST_Default", menuName = "Infima Games/Low Poly Shooter Pack/Sway Type")]
     public class SwayType : ScriptableObject
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// Horizontal.
-        /// </summary>
+        // Horizontal.
         public SwayDirection Horizontal => horizontal;
-        /// <summary>
-        /// Vertical.
-        /// </summary>
+        // Vertical.
         public SwayDirection Vertical => vertical;
         
         #endregion

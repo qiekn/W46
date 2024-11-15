@@ -3,17 +3,13 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Text Interface Element.
-    /// </summary>
+    // Text Interface Element.
     [RequireComponent(typeof(TextMeshProUGUI))]
     public abstract class ElementText : Element
     {
         #region FIELDS
 
-        /// <summary>
-        /// Text Mesh.
-        /// </summary>
+        // Text Mesh.
         protected TextMeshProUGUI textMesh;
 
         #endregion

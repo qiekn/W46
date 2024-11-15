@@ -3,15 +3,11 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-	/// <summary>
-	/// This class is helpful when adding weapons alone in the scene that are playing animations.
-	/// As, without it, the animation events would not have a receiver, and thus create errors!
-	/// </summary>
+	// This class is helpful when adding weapons alone in the scene that are playing animations.
+	// As, without it, the animation events would not have a receiver, and thus create errors!
 	public class AnimationReceiver : MonoBehaviour
 	{
-		/// <summary>
-		/// Demonstration Component Reference.
-		/// </summary>
+		// Demonstration Component Reference.
 		private CharacterDemonstration characterDemonstration;
 
 		#region UNITY
@@ -46,9 +42,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		private void OnSetActiveKnife() { }
 
-		/// <summary>
-		/// Spawns a magazine! This function is called from an Animation Event.
-		/// </summary>
+		// Spawns a magazine! This function is called from an Animation Event.
 		private void OnDropMagazine(int drop = 0) {
 			//Drop the magazine.
 			if(characterDemonstration != null)

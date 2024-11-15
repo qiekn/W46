@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// SwayDirection.
-    /// </summary>
+    // SwayDirection.
     [Serializable]
     public struct SwayDirection
     {

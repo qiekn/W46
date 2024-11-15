@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Component that changes a text to match the current time scale.
-    /// </summary>
+    // Component that changes a text to match the current time scale.
     public class TextTimescale : ElementText
     {
         #region METHODS

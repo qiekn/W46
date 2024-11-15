@@ -2,20 +2,14 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Magazine Behaviour.
-    /// </summary>
+    // Magazine Behaviour.
     public abstract class MagazineBehaviour : MonoBehaviour
     {
         #region GETTERS
         
-        /// <summary>
-        /// Returns The Total Ammunition.
-        /// </summary>
+        // Returns The Total Ammunition.
         public abstract int GetAmmunitionTotal();
-        /// <summary>
-        /// Returns the Sprite used on the Character's Interface.
-        /// </summary>
+        // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
 
         #endregion

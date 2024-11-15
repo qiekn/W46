@@ -2,25 +2,19 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// MotionType.
-    /// </summary>
+    // MotionType.
     public enum MotionType { Camera, Item }
     
-    /// <summary>
-    /// Motion. This abstract class serves as a base class for all components that apply any sort of cool procedural
-    /// motions to either the weapons, or the camera, in the asset.
-    /// It has a bunch of helper things that make it easier to handle, and runs through the MotionApplier, forming
-    /// a nice cycle! 
-    /// </summary>
+    // Motion. This abstract class serves as a base class for all components that apply any sort of cool procedural
+    // motions to either the weapons, or the camera, in the asset.
+    // It has a bunch of helper things that make it easier to handle, and runs through the MotionApplier, forming
+    // a nice cycle! 
     [RequireComponent(typeof(MotionApplier))]
     public abstract class Motion : MonoBehaviour
     {
         #region PROPERTIES
         
-        /// <summary>
-        /// Alpha.
-        /// </summary>
+        // Alpha.
         public float Alpha => alpha;
         
         #endregion
@@ -44,9 +38,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region METHODS
         
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake()
         {
             //Try to get the applier if we haven't assigned it.
@@ -58,22 +50,16 @@ namespace InfimaGames.LowPolyShooterPack
                 motionApplier.Subscribe(this);
         }
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public abstract void Tick();
         
         #endregion
         
         #region FUNCTIONS
         
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public abstract Vector3 GetLocation();
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public abstract Vector3 GetEulerAngles();
         
         #endregion

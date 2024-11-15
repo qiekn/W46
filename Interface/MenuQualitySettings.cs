@@ -4,9 +4,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Quality Settings Menu.
-    /// </summary>
+    // Quality Settings Menu.
     public class MenuQualitySettings : Element
     {
         #region FIELDS SERIALIZED
@@ -29,27 +27,17 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         #region FIELDS
         
-        /// <summary>
-        /// Animation Component.
-        /// </summary>
+        // Animation Component.
         private Animation animationComponent;
-        /// <summary>
-        /// If true, it means that this menu is enabled and showing properly.
-        /// </summary>
+        // If true, it means that this menu is enabled and showing properly.
         private bool menuIsEnabled;
 
-        /// <summary>
-        /// Main Post Processing Volume.
-        /// </summary>
+        // Main Post Processing Volume.
         private PostProcessVolume postProcessingVolume;
-        /// <summary>
-        /// Scope Post Processing Volume.
-        /// </summary>
+        // Scope Post Processing Volume.
         private PostProcessVolume postProcessingVolumeScope;
 
-        /// <summary>
-        /// Depth Of Field Settings.
-        /// </summary>
+        // Depth Of Field Settings.
         private DepthOfField depthOfField;
 
         #endregion
@@ -93,9 +81,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region METHODS
 
-        /// <summary>
-        /// Shows the menu by playing an animation.
-        /// </summary>
+        // Shows the menu by playing an animation.
         private void Show()
         {
             //Enabled.
@@ -109,9 +95,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             if(depthOfField != null)
                 depthOfField.active = true;
         }
-        /// <summary>
-        /// Hides the menu by playing an animation.
-        /// </summary>
+        // Hides the menu by playing an animation.
         private void Hide()
         {
             //Disabled.
@@ -126,9 +110,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
                 depthOfField.active = false;
         }
 
-        /// <summary>
-        /// Sets whether the post processing is enabled, or disabled.
-        /// </summary>
+        // Sets whether the post processing is enabled, or disabled.
         private void SetPostProcessingState(bool value = true)
         {
             //Enable/Disable the volumes.
@@ -138,9 +120,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
                 postProcessingVolumeScope.enabled = value;
         }
 
-        /// <summary>
-        /// Sets the graphic quality to very low.
-        /// </summary>
+        // Sets the graphic quality to very low.
         public void SetQualityVeryLow()
         {
             //Set Quality.
@@ -148,9 +128,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Disable Post Processing.
             SetPostProcessingState(false);
         }
-        /// <summary>
-        /// Sets the graphic quality to low.
-        /// </summary>
+        // Sets the graphic quality to low.
         public void SetQualityLow()
         {
             //Set Quality.
@@ -159,9 +137,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             SetPostProcessingState(false);
         }
 
-        /// <summary>
-        /// Sets the graphic quality to medium.
-        /// </summary>
+        // Sets the graphic quality to medium.
         public void SetQualityMedium()
         {
             //Set Quality.
@@ -169,9 +145,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Enable Post Processing.
             SetPostProcessingState();
         }
-        /// <summary>
-        /// Sets the graphic quality to high.
-        /// </summary>
+        // Sets the graphic quality to high.
         public void SetQualityHigh()
         {
             //Set Quality.
@@ -180,9 +154,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             SetPostProcessingState();
         }
 
-        /// <summary>
-        /// Sets the graphic quality to very high.
-        /// </summary>
+        // Sets the graphic quality to very high.
         public void SetQualityVeryHigh()
         {
             //Set Quality.
@@ -190,9 +162,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             //Enable Post Processing.
             SetPostProcessingState();
         }
-        /// <summary>
-        /// Sets the graphic quality to ultra.
-        /// </summary>
+        // Sets the graphic quality to ultra.
         public void SetQualityUltra()
         {
             //Set Quality.

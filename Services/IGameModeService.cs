@@ -1,13 +1,9 @@
 ﻿namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Game Mode Service.
-    /// </summary>
+    // Game Mode Service.
     public interface IGameModeService : IGameService
     {
-        /// <summary>
-        /// Returns the Player Character.
-        /// </summary>
+        // Returns the Player Character.
         CharacterBehaviour GetPlayerCharacter();
     }
 }

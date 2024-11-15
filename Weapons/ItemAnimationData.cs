@@ -2,9 +2,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// ItemAnimationData. Stores all information related to the weapon-specific procedural data.
-    /// </summary>
+    // ItemAnimationData. Stores all information related to the weapon-specific procedural data.
     public class ItemAnimationData : ItemAnimationDataBehaviour
     {
         #region FIELDS SERIALIZED
@@ -43,33 +41,21 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region GETTERS
 
-        /// <summary>
-        /// GetCameraRecoilData.
-        /// </summary>
+        // GetCameraRecoilData.
         public override RecoilData GetCameraRecoilData() => cameraRecoilData;
-        /// <summary>
-        /// GetWeaponRecoilData.
-        /// </summary>
+        // GetWeaponRecoilData.
         public override RecoilData GetWeaponRecoilData() => weaponRecoilData;
 
-        /// <summary>
-        /// GetRecoilData.
-        /// </summary>
+        // GetRecoilData.
         public override RecoilData GetRecoilData(MotionType motionType) =>
             motionType == MotionType.Item ? GetWeaponRecoilData() : GetCameraRecoilData();
 
-        /// <summary>
-        /// GetLowerData.
-        /// </summary>
+        // GetLowerData.
         public override LowerData GetLowerData() => lowerData;
-        /// <summary>
-        /// GetLeaningData.
-        /// </summary>
+        // GetLeaningData.
         public override LeaningData GetLeaningData() => leaningData;
         
-        /// <summary>
-        /// GetItemOffsets.
-        /// </summary>
+        // GetItemOffsets.
         public override ItemOffsets GetItemOffsets() => itemOffsets;
 
         #endregion

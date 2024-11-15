@@ -3,10 +3,8 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Movement. This is our main, and base, component that handles the character's movement.
-    /// It contains all of the logic relating to moving, running, crouching, jumping...etc
-    /// </summary>
+    // Movement. This is our main, and base, component that handles the character's movement.
+    // It contains all of the logic relating to moving, running, crouching, jumping...etc
     public class Movement : MovementBehaviour
     {
         #region FIELDS SERIALIZED
@@ -115,66 +113,44 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Controller.
-        /// </summary>
+        // Controller.
         private CharacterController controller;
 
-        /// <summary>
-        /// Player Character.
-        /// </summary>
+        // Player Character.
         private CharacterBehaviour playerCharacter;
-        /// <summary>
-        /// The player character's equipped weapon.
-        /// </summary>
+        // The player character's equipped weapon.
         private WeaponBehaviour equippedWeapon;
 
-        /// <summary>
-        /// Default height of the character.
-        /// </summary>
+        // Default height of the character.
         private float standingHeight;
 
-        /// <summary>
-        /// Velocity.
-        /// </summary>
+        // Velocity.
         private Vector3 velocity;
 
-        /// <summary>
-        /// Is the character on the ground.
-        /// </summary>
+        // Is the character on the ground.
         private bool isGrounded;
-        /// <summary>
-        /// Was the character standing on the ground last frame.
-        /// </summary>
+        // Was the character standing on the ground last frame.
         private bool wasGrounded;
 
-        /// <summary>
-        /// Is the character jumping?
-        /// </summary>
+        // Is the character jumping?
         private bool jumping;
-        /// <summary>
-        /// If true, the character controller is crouched.
-        /// </summary>
+        // If true, the character controller is crouched.
         private bool crouching;
 
-        /// <summary>
-        /// Stores the Time.time value when the character last jumped.
-        /// </summary>
+        // Stores the Time.time value when the character last jumped.
         private float lastJumpTime;
         
         #endregion
 
         #region UNITY FUNCTIONS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected override void Awake()
         {
             //Get Player Character.
             playerCharacter = ServiceLocator.Current.Get<IGameModeService>().GetPlayerCharacter();
         }
-        /// Initializes the FpsController on start.
+        // Initializes the FpsController on start.
         protected override void Start()
         {
             //Cache the controller.
@@ -184,7 +160,7 @@ namespace InfimaGames.LowPolyShooterPack
             standingHeight = controller.height;
         }
 
-        /// Moves the camera to the character, processes jumping and plays sounds every frame.
+        // Moves the camera to the character, processes jumping and plays sounds every frame.
         protected override void Update()
         {
             //Get the equipped weapon!
@@ -208,9 +184,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Save the grounded value to check for difference next frame.
             wasGrounded = isGrounded;
         }
-        /// <summary>
-        /// OnControllerColliderHit.
-        /// </summary>
+        // OnControllerColliderHit.
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             //Zero out the upward velocity if the character hits the ceiling.
@@ -231,9 +205,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region METHODS
 
-        /// <summary>
-        /// Moves the character.
-        /// </summary>
+        // Moves the character.
         private void MoveCharacter()
         {
             //Get Movement Input!
@@ -302,18 +274,12 @@ namespace InfimaGames.LowPolyShooterPack
             controller.Move(applied);
         }
 
-        /// <summary>
-        /// WasGrounded.
-        /// </summary>
+        // WasGrounded.
         public override bool WasGrounded() => wasGrounded;
-        /// <summary>
-        /// IsJumping.
-        /// </summary>
+        // IsJumping.
         public override bool IsJumping() => jumping;
 
-        /// <summary>
-        /// Can Crouch.
-        /// </summary>
+        // Can Crouch.
         public override bool CanCrouch(bool newCrouching)
         {
             //Always block crouching if we need to.
@@ -334,15 +300,11 @@ namespace InfimaGames.LowPolyShooterPack
             return (Physics.OverlapSphere(sphereLocation, controller.radius, crouchOverlapsMask).Length == 0);
         }
 
-        /// <summary>
-        /// IsCrouching.
-        /// </summary>
-        /// <returns></returns>
+        // IsCrouching.
+        // <returns></returns>
         public override bool IsCrouching() => crouching;
 
-        /// <summary>
-        /// Jump.
-        /// </summary>
+        // Jump.
         public override void Jump()
         {
             //We can ignore this if we're crouching and we're not allowed to do crouch-jumps.
@@ -361,9 +323,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Save lastJumpTime.
             lastJumpTime = Time.time;
         }
-        /// <summary>
-        /// Changes the controller's capsule height.
-        /// </summary>
+        // Changes the controller's capsule height.
         public override void Crouch(bool newCrouching)
         {
             //Set the new crouching value.
@@ -385,13 +345,9 @@ namespace InfimaGames.LowPolyShooterPack
                 StartCoroutine(nameof(TryUncrouch));
         }
 
-        /// <summary>
-        /// Try Toggle Crouch.
-        /// </summary>
+        // Try Toggle Crouch.
         public override void TryToggleCrouch() => TryCrouch(!crouching);
-        /// <summary>
-        /// Tries to un-crouch the character.
-        /// </summary>
+        // Tries to un-crouch the character.
         private IEnumerator TryUncrouch()
         {
             //If the movementBehaviour says that we can't go into whatever crouching state is the opposite, then
@@ -406,31 +362,19 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        /// <summary>
-        /// GetLastJumpTime.
-        /// </summary>
+        // GetLastJumpTime.
         public override float GetLastJumpTime() => lastJumpTime;
 
-        /// <summary>
-        /// Get Multiplier Forward.
-        /// </summary>
+        // Get Multiplier Forward.
         public override float GetMultiplierForward() => walkingMultiplierForward;
-        /// <summary>
-        /// Get Multiplier Sideways.
-        /// </summary>
+        // Get Multiplier Sideways.
         public override float GetMultiplierSideways() => walkingMultiplierSideways;
-        /// <summary>
-        /// Get Multiplier Backwards.
-        /// </summary>
+        // Get Multiplier Backwards.
         public override float GetMultiplierBackwards() => walkingMultiplierBackwards;
         
-        /// <summary>
-        /// Returns the value of Velocity.
-        /// </summary>
+        // Returns the value of Velocity.
         public override Vector3 GetVelocity() => controller.velocity;
-        /// <summary>
-        /// Returns the value of Grounded.
-        /// </summary>
+        // Returns the value of Grounded.
         public override bool IsGrounded() => controller.isGrounded;
 
         #endregion

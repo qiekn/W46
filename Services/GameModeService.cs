@@ -1,15 +1,11 @@
 ﻿namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Game Mode Service.
-    /// </summary>
+    // Game Mode Service.
     public class GameModeService : IGameModeService
     {
         #region FIELDS
         
-        /// <summary>
-        /// The Player Character.
-        /// </summary>
+        // The Player Character.
         private CharacterBehaviour playerCharacter;
         
         #endregion

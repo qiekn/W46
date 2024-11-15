@@ -2,10 +2,8 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Crosshair UI Element. This class makes sure to change the Crosshair at runtime to make sure that it
-    /// looks as intended, and functions with the rest of the gameplay elements.
-    /// </summary>
+    // Crosshair UI Element. This class makes sure to change the Crosshair at runtime to make sure that it
+    // looks as intended, and functions with the rest of the gameplay elements.
     public class Crosshair : Element
     {
         #region FIELDS SERIALIZED
@@ -84,36 +82,24 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region FIELDS
 
-        /// <summary>
-        /// MovementBehaviour.
-        /// </summary>
+        // MovementBehaviour.
         private MovementBehaviour movementBehaviour;
 
-        /// <summary>
-        /// Crosshair Local Scale.
-        /// </summary>
+        // Crosshair Local Scale.
         private float crosshairLocalScale;
-        /// <summary>
-        /// Crosshair Visibility.
-        /// </summary>
+        // Crosshair Visibility.
         private float crosshairVisibility;
-        /// <summary>
-        /// Dot Visibility.
-        /// </summary>
+        // Dot Visibility.
         private float dotVisibility;
 
-        /// <summary>
-        /// springCrosshairSizeDelta. Spring used to change the Crosshair's delta size.
-        /// </summary>
+        // springCrosshairSizeDelta. Spring used to change the Crosshair's delta size.
         private Spring springCrosshairSizeDelta;
 
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected override void Awake()
         {
             //Base.
@@ -126,9 +112,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             crosshairVisibility = 1.0f;
         }
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected override void Tick()
         {
             //Check for missing references.

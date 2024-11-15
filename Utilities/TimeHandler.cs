@@ -3,9 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Time Manager.
-    /// </summary>
+    // Time Manager.
     public class TimeHandler : MonoBehaviour
     {
         [Header("Settings")]
@@ -14,28 +12,20 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private float increment = 0.1f;
         
-        /// <summary>
-        /// Determines if the time is stopped.
-        /// </summary>
+        // Determines if the time is stopped.
         private bool paused;
         
-        /// <summary>
-        /// Current Time Scale.
-        /// </summary>
+        // Current Time Scale.
         private float current = 1.0f;
 
-        /// <summary>
-        /// Updates The Time Scale.
-        /// </summary>
+        // Updates The Time Scale.
         private void Scale()
         {
             //Update Time Scale.
             Time.timeScale = current;
         }
         
-        /// <summary>
-        /// Change Time Scale.
-        /// </summary>
+        // Change Time Scale.
         private void Change(float value = 1.0f)
         {
             //Save Value.
@@ -45,18 +35,14 @@ namespace InfimaGames.LowPolyShooterPack
             Scale();
         }
 
-        /// <summary>
-        /// Increase Time Scale Value.
-        /// </summary>
+        // Increase Time Scale Value.
         private void Increase(float value = 1.0f)
         {
             //Change.
             Change(Mathf.Clamp01(current + value));
         }
 
-        /// <summary>
-        /// Pause.
-        /// </summary>
+        // Pause.
         private void Pause()
         {
             //Pause.
@@ -66,9 +52,7 @@ namespace InfimaGames.LowPolyShooterPack
             Time.timeScale = 0.0f;
         }
         
-        /// <summary>
-        /// Toggle Pause.
-        /// </summary>
+        // Toggle Pause.
         private void Toggle()
         {
             //Toggle Pause.
@@ -78,9 +62,7 @@ namespace InfimaGames.LowPolyShooterPack
                 Pause();
         }
 
-        /// <summary>
-        /// Unpause.
-        /// </summary>
+        // Unpause.
         private void Unpause()
         {
             //Unpause.
@@ -90,9 +72,7 @@ namespace InfimaGames.LowPolyShooterPack
             Change(current);
         }
 
-        /// <summary>
-        /// Increase Time Scale Event.
-        /// </summary>
+        // Increase Time Scale Event.
         public virtual void OnIncrease(InputAction.CallbackContext context)
         {
             //Switch.
@@ -106,9 +86,7 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
         
-        /// <summary>
-        /// Increase Time Scale Event.
-        /// </summary>
+        // Increase Time Scale Event.
         public virtual void OnDecrease(InputAction.CallbackContext context)
         {
             //Switch.
@@ -122,9 +100,7 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
 
-        /// <summary>
-        /// Toggle Time Scale Stop.
-        /// </summary>
+        // Toggle Time Scale Stop.
         public virtual void OnToggle(InputAction.CallbackContext context)
         {
             //Switch.

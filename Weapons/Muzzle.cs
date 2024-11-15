@@ -3,9 +3,7 @@ using System.Collections;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Muzzle.
-    /// </summary>
+    // Muzzle.
     public class Muzzle : MuzzleBehaviour
     {
         #region FIELDS SERIALIZED
@@ -52,22 +50,16 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
 
-        /// <summary>
-        /// Instantiated Particle System.
-        /// </summary>
+        // Instantiated Particle System.
         private ParticleSystem particles;
-        /// <summary>
-        /// Instantiated light.
-        /// </summary>
+        // Instantiated light.
         private Light flashLight;
 
         #endregion
 
         #region UNITY FUNCTIONS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Null Check.

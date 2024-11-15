@@ -1,9 +1,7 @@
 ﻿namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// This component handles warning developers whether their mouse is locked or not by
-    /// updating a text in the interface.
-    /// </summary>
+    // This component handles warning developers whether their mouse is locked or not by
+    // updating a text in the interface.
     public class TextMouseLock : ElementText
     {
         #region METHODS

@@ -3,9 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Interactor.
-    /// </summary>
+    // Interactor.
     public class Interactor : InteractorBehaviour
     {
         #region FIELDS SERIALIZED
@@ -34,22 +32,16 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Main Hit Result.
-        /// </summary>
+        // Main Hit Result.
         private RaycastHit hitResult;
-		/// <summary>
-		/// Interactable.
-		/// </summary>
+		// Interactable.
         private Interactable interactable;
 
         #endregion
 
         #region UNITY
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected override void Update()
         {
 	        //Interaction Trace.
@@ -73,9 +65,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region INPUT
 
-	    /// <summary>
-		/// Interact.
-		/// </summary>
+		// Interact.
 	    // ReSharper disable once UnusedMember.Global
 	    public void TryInteract(InputAction.CallbackContext context)
 		{
@@ -99,9 +89,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
         
-        /// <summary>
-        /// Can Interact
-        /// </summary>
+        // Can Interact
         public override bool CanInteract()
         {
 	        //TODO: Add this.
@@ -113,14 +101,10 @@ namespace InfimaGames.LowPolyShooterPack
 	        return true;
         }
 
-        /// <summary>
-        /// Get Hit Result.
-        /// </summary>
-        /// <returns></returns>
+        // Get Hit Result.
+        // <returns></returns>
         public override RaycastHit GetHitResult() => hitResult;
-		/// <summary>
-		/// Get Interactable.
-		/// </summary>
+		// Get Interactable.
         public override Interactable GetInteractable() => interactable;
 
         #endregion

@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// CanvasAlpha. Changes the canvas alpha based on certain things that can happen in-game.
-    /// </summary>
+    // CanvasAlpha. Changes the canvas alpha based on certain things that can happen in-game.
     public class CanvasAlpha : Element
     {
         #region FIELDS SERIALIZED
@@ -31,9 +29,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected override void Tick()
         {
             //Base.

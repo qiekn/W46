@@ -2,14 +2,10 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LaserType. Used to determine what functionality a Laser attachment has!
-    /// </summary>
+    // LaserType. Used to determine what functionality a Laser attachment has!
     public enum LaserType { Lasersight, Flashlight }
     
-    /// <summary>
-    /// Laser. Represents a Weapon's laser.
-    /// </summary>
+    // Laser. Represents a Weapon's laser.
     public class Laser : LaserBehaviour
     {
         #region FIELDS SERIALIZED
@@ -66,35 +62,25 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Beam Parent.
-        /// </summary>
+        // Beam Parent.
         private Transform beamParent;
 
         #endregion
         
         #region GETTERS
 
-        /// <summary>
-        /// GetSprite.
-        /// </summary>
+        // GetSprite.
         public override Sprite GetSprite() => sprite;
-        /// <summary>
-        /// GetTurnOffWhileRunning.
-        /// </summary>
+        // GetTurnOffWhileRunning.
         public override bool GetTurnOffWhileRunning() => turnOffWhileRunning;
-        /// <summary>
-        /// GetTurnOffWhileAiming.
-        /// </summary>
+        // GetTurnOffWhileAiming.
         public override bool GetTurnOffWhileAiming() => turnOffWhileAiming;
 
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Toggle.
-        /// </summary>
+        // Toggle.
         public override void Toggle()
         {
             //Toggle active.
@@ -107,18 +93,14 @@ namespace InfimaGames.LowPolyShooterPack
             if(toggleClip != null)
                 ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(toggleClip, toggleAudioSettings);
         }
-        /// <summary>
-        /// Reapply.
-        /// </summary>
+        // Reapply.
         public override void Reapply()
         {
             //Activate/Deactivate the laser.
             if(laserTransform != null)
                 laserTransform.gameObject.SetActive(active);
         }
-        /// <summary>
-        /// Hide.
-        /// </summary>
+        // Hide.
         public override void Hide()
         {
             //Deactivate Laser.
@@ -130,9 +112,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Ignore.
@@ -142,9 +122,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Cache beam parent.
             beamParent = laserTransform.parent;
         }
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Ignore.

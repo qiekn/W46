@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// SwayMotion. This component produces all the sway motions!
-    /// </summary>
+    // SwayMotion. This component produces all the sway motions!
     public class SwayMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -35,27 +33,19 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
 
-        /// <summary>
-        /// springLocation.
-        /// </summary>
+        // springLocation.
         private readonly Spring springLocation = new Spring();
-        /// <summary>
-        /// springRotation.
-        /// </summary>
+        // springRotation.
         private readonly Spring springRotation = new Spring();
 
-        /// <summary>
-        /// FeelState.
-        /// </summary>
+        // FeelState.
         private FeelState feelState;
 
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check for reference errors.
@@ -141,9 +131,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
         
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check References.
@@ -153,9 +141,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return springLocation.Evaluate(feelState.SwayData.SpringSettings);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {
             //Check References.

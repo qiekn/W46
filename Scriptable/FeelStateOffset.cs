@@ -2,32 +2,22 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// FeelStateOffset. Contains all information needed to offset something properly, and is used in FeelStates for
-    /// that exact purpose!
-    /// </summary>
+    // FeelStateOffset. Contains all information needed to offset something properly, and is used in FeelStates for
+    // that exact purpose!
     [CreateAssetMenu(fileName = "SO_FSO_Default", menuName = "Infima Games/Low Poly Shooter Pack/Feel State Offset",
         order = 0)]
     public class FeelStateOffset : ScriptableObject
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// OffsetLocation.
-        /// </summary>
+        // OffsetLocation.
         public Vector3 OffsetLocation => offsetLocation;
-        /// <summary>
-        /// SpringSettingsLocation.
-        /// </summary>
+        // SpringSettingsLocation.
         public SpringSettings SpringSettingsLocation => springSettingsLocation;
 
-        /// <summary>
-        /// OffsetRotation.
-        /// </summary>
+        // OffsetRotation.
         public Vector3 OffsetRotation => offsetRotation;
-        /// <summary>
-        /// SpringSettingsRotation.
-        /// </summary>
+        // SpringSettingsRotation.
         public SpringSettings SpringSettingsRotation => springSettingsRotation;
         
         #endregion

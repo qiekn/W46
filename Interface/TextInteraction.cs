@@ -4,9 +4,7 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Interaction Text.
-    /// </summary>
+    // Interaction Text.
     [RequireComponent(typeof(Animator))]
     public class TextInteraction : Element
     {
@@ -28,22 +26,16 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         #region FIELDS
         
-        /// <summary>
-        /// Animator.
-        /// </summary>
+        // Animator.
         private Animator animator;
-        /// <summary>
-        /// Interactor Behaviour.
-        /// </summary>
+        // Interactor Behaviour.
         private InteractorBehaviour interactorBehaviour;
         
         #endregion
         
         #region UNITY
         
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected override void Awake()
         {
             //Base.
@@ -57,9 +49,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
         
         #region METHODS
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected override void Tick()
         {
             //Cache Interactor Behaviour.

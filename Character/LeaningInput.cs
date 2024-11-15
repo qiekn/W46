@@ -3,9 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LeaningInput. This script handles all leaning input, and makes sure to let the character's animator know about it.
-    /// </summary>
+    // LeaningInput. This script handles all leaning input, and makes sure to let the character's animator know about it.
     public class LeaningInput : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -24,22 +22,16 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Current Leaning Value.
-        /// </summary>
+        // Current Leaning Value.
         private float leaningInput;
-        /// <summary>
-        /// True If Leaning.
-        /// </summary>
+        // True If Leaning.
         private bool isLeaning;
 
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Update isLeaning.
@@ -51,9 +43,7 @@ namespace InfimaGames.LowPolyShooterPack
             characterAnimator.SetBool(AHashes.Leaning, isLeaning);
         }
 
-        /// <summary>
-        /// Lean.
-        /// </summary>
+        // Lean.
         public void Lean(InputAction.CallbackContext context)
         {
             //Block while the cursor is unlocked.

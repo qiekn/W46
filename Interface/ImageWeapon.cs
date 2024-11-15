@@ -3,9 +3,7 @@ using UnityEngine.UI;
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Weapon Image. Handles assigning the proper sprites to the weapon images.
-    /// </summary>
+    // Weapon Image. Handles assigning the proper sprites to the weapon images.
     public class ImageWeapon : Element
     {
         #region FIELDS SERIALIZED
@@ -50,9 +48,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region FIELDS
 
-        /// <summary>
-        /// Weapon Attachment Manager.
-        /// </summary>
+        // Weapon Attachment Manager.
         private WeaponAttachmentManagerBehaviour attachmentManagerBehaviour;
 
         #endregion
@@ -123,9 +119,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             AssignSprite(imageWeaponMuzzle, sprite, muzzleBehaviour == null);
         }
 
-        /// <summary>
-        /// Assigns a sprite to an image.
-        /// </summary>
+        // Assigns a sprite to an image.
         private static void AssignSprite(Image image, Sprite sprite, bool forceHide = false)
         {
             //Update.

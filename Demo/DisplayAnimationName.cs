@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Display an animation's name in the world.
-    /// </summary>
+    // Display an animation's name in the world.
     public class DisplayAnimationName : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -18,9 +16,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Cached Animator.
-        /// </summary>
+        // Cached Animator.
         private Animator cachedAnimator;
 
         #endregion

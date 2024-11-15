@@ -2,29 +2,19 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Feel. This object contains basically all of the data relating to how weapons feel according to procedural motions.
-    /// </summary>
+    // Feel. This object contains basically all of the data relating to how weapons feel according to procedural motions.
     [CreateAssetMenu(fileName = "SO_Feel", menuName = "Infima Games/Low Poly Shooter Pack/Feel", order = 0)]
     public class Feel : ScriptableObject
     {
         #region PROPERTIES
 
-        /// <summary>
-        /// Standing.
-        /// </summary>
+        // Standing.
         public FeelState Standing => standing;
-        /// <summary>
-        /// Crouching.
-        /// </summary>
+        // Crouching.
         public FeelState Crouching => crouching;
-        /// <summary>
-        /// Aiming.
-        /// </summary>
+        // Aiming.
         public FeelState Aiming => aiming;
-        /// <summary>
-        /// Running.
-        /// </summary>
+        // Running.
         public FeelState Running => running;
         
         #endregion
@@ -59,9 +49,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// Returns the FeelState that should be used based on the character's current Animator's component values.
-        /// </summary>
+        // Returns the FeelState that should be used based on the character's current Animator's component values.
         public FeelState GetState(Animator characterAnimator)
         {
             //Running.

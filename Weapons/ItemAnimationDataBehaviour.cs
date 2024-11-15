@@ -2,39 +2,25 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// ItemAnimationDataBehaviour. Used as an abstract class to contain all definitions for the Recoil class.
-    /// </summary>
+    // ItemAnimationDataBehaviour. Used as an abstract class to contain all definitions for the Recoil class.
     public abstract class ItemAnimationDataBehaviour : MonoBehaviour
     {
         #region GETTERS
         
-        /// <summary>
-        /// This function should return the RecoilData used for the camera.
-        /// </summary>
+        // This function should return the RecoilData used for the camera.
         public abstract RecoilData GetCameraRecoilData();
-        /// <summary>
-        /// This function should return the RecoilData used for the weapon.
-        /// </summary>
+        // This function should return the RecoilData used for the weapon.
         public abstract RecoilData GetWeaponRecoilData();
-        /// <summary>
-        /// Returns a RecoilData value according to the passed MotionType.
-        /// </summary>
-        /// <returns></returns>
+        // Returns a RecoilData value according to the passed MotionType.
+        // <returns></returns>
         public abstract RecoilData GetRecoilData(MotionType motionType);
 
-        /// <summary>
-        /// Return all the data needed to set the lowered pose of a weapon.
-        /// </summary>
+        // Return all the data needed to set the lowered pose of a weapon.
         public abstract LowerData GetLowerData();
-        /// <summary>
-        /// Returns the LeaningData needed to apply to the equipped weapon while the character is leaning.
-        /// </summary>
+        // Returns the LeaningData needed to apply to the equipped weapon while the character is leaning.
         public abstract LeaningData GetLeaningData();
         
-        /// <summary>
-        /// Returns the ItemOffsets object needed to apply proper offsets to all items.
-        /// </summary>
+        // Returns the ItemOffsets object needed to apply proper offsets to all items.
         public abstract ItemOffsets GetItemOffsets();
 
 

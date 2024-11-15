@@ -2,10 +2,8 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LeaningData. Contains all data related to the player character leaning, and having the camera and equipped item
-    /// act on it too.
-    /// </summary>
+    // LeaningData. Contains all data related to the player character leaning, and having the camera and equipped item
+    // act on it too.
     [CreateAssetMenu(fileName = "SO_Leaning_Name", menuName = "Infima Games/Low Poly Shooter Pack/Leaning Data", order = 0)]
     public class LeaningData : ScriptableObject
     {
@@ -35,9 +33,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// Returns the curves for the requested MotionType.
-        /// </summary>
+        // Returns the curves for the requested MotionType.
         public ACurves GetCurves(MotionType motionType, bool aiming = false)
         {
             //Switch.

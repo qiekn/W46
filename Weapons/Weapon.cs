@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Weapon. This class handles most of the things that weapons need.
-    /// </summary>
+    // Weapon. This class handles most of the things that weapons need.
     public class Weapon : WeaponBehaviour
     {
         #region FIELDS SERIALIZED
@@ -139,59 +137,37 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Weapon Animator.
-        /// </summary>
+        // Weapon Animator.
         private Animator animator;
-        /// <summary>
-        /// Attachment Manager.
-        /// </summary>
+        // Attachment Manager.
         private WeaponAttachmentManagerBehaviour attachmentManager;
 
-        /// <summary>
-        /// Amount of ammunition left.
-        /// </summary>
+        // Amount of ammunition left.
         private int ammunitionCurrent;
 
         #region Attachment Behaviours
         
-        /// <summary>
-        /// Equipped scope Reference.
-        /// </summary>
+        // Equipped scope Reference.
         private ScopeBehaviour scopeBehaviour;
         
-        /// <summary>
-        /// Equipped Magazine Reference.
-        /// </summary>
+        // Equipped Magazine Reference.
         private MagazineBehaviour magazineBehaviour;
-        /// <summary>
-        /// Equipped Muzzle Reference.
-        /// </summary>
+        // Equipped Muzzle Reference.
         private MuzzleBehaviour muzzleBehaviour;
 
-        /// <summary>
-        /// Equipped Laser Reference.
-        /// </summary>
+        // Equipped Laser Reference.
         private LaserBehaviour laserBehaviour;
-        /// <summary>
-        /// Equipped Grip Reference.
-        /// </summary>
+        // Equipped Grip Reference.
         private GripBehaviour gripBehaviour;
 
         #endregion
 
-        /// <summary>
-        /// The GameModeService used in this game!
-        /// </summary>
+        // The GameModeService used in this game!
         private IGameModeService gameModeService;
-        /// <summary>
-        /// The main player character behaviour component.
-        /// </summary>
+        // The main player character behaviour component.
         private CharacterBehaviour characterBehaviour;
 
-        /// <summary>
-        /// The player character's camera.
-        /// </summary>
+        // The player character's camera.
         private Transform playerCamera;
         
         #endregion
@@ -239,9 +215,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        /// <summary>
-        /// GetFieldOfViewMultiplierAim.
-        /// </summary>
+        // GetFieldOfViewMultiplierAim.
         public override float GetFieldOfViewMultiplierAim()
         {
             //Make sure we don't have any issues even with a broken setup!
@@ -254,9 +228,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return 1.0f;
         }
-        /// <summary>
-        /// GetFieldOfViewMultiplierAimWeapon.
-        /// </summary>
+        // GetFieldOfViewMultiplierAimWeapon.
         public override float GetFieldOfViewMultiplierAimWeapon()
         {
             //Make sure we don't have any issues even with a broken setup!
@@ -270,134 +242,78 @@ namespace InfimaGames.LowPolyShooterPack
             return 1.0f;
         }
         
-        /// <summary>
-        /// GetAnimator.
-        /// </summary>
+        // GetAnimator.
         public override Animator GetAnimator() => animator;
-        /// <summary>
-        /// CanReloadAimed.
-        /// </summary>
+        // CanReloadAimed.
         public override bool CanReloadAimed() => canReloadAimed;
 
-        /// <summary>
-        /// GetSpriteBody.
-        /// </summary>
+        // GetSpriteBody.
         public override Sprite GetSpriteBody() => spriteBody;
-        /// <summary>
-        /// GetMultiplierMovementSpeed.
-        /// </summary>
+        // GetMultiplierMovementSpeed.
         public override float GetMultiplierMovementSpeed() => multiplierMovementSpeed;
 
-        /// <summary>
-        /// GetAudioClipHolster.
-        /// </summary>
+        // GetAudioClipHolster.
         public override AudioClip GetAudioClipHolster() => audioClipHolster;
-        /// <summary>
-        /// GetAudioClipUnholster.
-        /// </summary>
+        // GetAudioClipUnholster.
         public override AudioClip GetAudioClipUnholster() => audioClipUnholster;
 
-        /// <summary>
-        /// GetAudioClipReload.
-        /// </summary>
+        // GetAudioClipReload.
         public override AudioClip GetAudioClipReload() => audioClipReload;
-        /// <summary>
-        /// GetAudioClipReloadEmpty.
-        /// </summary>
+        // GetAudioClipReloadEmpty.
         public override AudioClip GetAudioClipReloadEmpty() => audioClipReloadEmpty;
         
-        /// <summary>
-        /// GetAudioClipReloadOpen.
-        /// </summary>
+        // GetAudioClipReloadOpen.
         public override AudioClip GetAudioClipReloadOpen() => audioClipReloadOpen;
-        /// <summary>
-        /// GetAudioClipReloadInsert.
-        /// </summary>
+        // GetAudioClipReloadInsert.
         public override AudioClip GetAudioClipReloadInsert() => audioClipReloadInsert;
-        /// <summary>
-        /// GetAudioClipReloadClose.
-        /// </summary>
+        // GetAudioClipReloadClose.
         public override AudioClip GetAudioClipReloadClose() => audioClipReloadClose;
 
-        /// <summary>
-        /// GetAudioClipFireEmpty.
-        /// </summary>
+        // GetAudioClipFireEmpty.
         public override AudioClip GetAudioClipFireEmpty() => audioClipFireEmpty;
-        /// <summary>
-        /// GetAudioClipBoltAction.
-        /// </summary>
+        // GetAudioClipBoltAction.
         public override AudioClip GetAudioClipBoltAction() => audioClipBoltAction;
         
-        /// <summary>
-        /// GetAudioClipFire.
-        /// </summary>
+        // GetAudioClipFire.
         public override AudioClip GetAudioClipFire() => muzzleBehaviour.GetAudioClipFire();
-        /// <summary>
-        /// GetAmmunitionCurrent.
-        /// </summary>
+        // GetAmmunitionCurrent.
         public override int GetAmmunitionCurrent() => ammunitionCurrent;
 
-        /// <summary>
-        /// GetAmmunitionTotal.
-        /// </summary>
+        // GetAmmunitionTotal.
         public override int GetAmmunitionTotal() => magazineBehaviour.GetAmmunitionTotal();
-        /// <summary>
-        /// HasCycledReload.
-        /// </summary>
+        // HasCycledReload.
         public override bool HasCycledReload() => cycledReload;
 
-        /// <summary>
-        /// IsAutomatic.
-        /// </summary>
+        // IsAutomatic.
         public override bool IsAutomatic() => automatic;
-        /// <summary>
-        /// IsBoltAction.
-        /// </summary>
+        // IsBoltAction.
         public override bool IsBoltAction() => boltAction;
 
-        /// <summary>
-        /// GetAutomaticallyReloadOnEmpty.
-        /// </summary>
+        // GetAutomaticallyReloadOnEmpty.
         public override bool GetAutomaticallyReloadOnEmpty() => automaticReloadOnEmpty;
-        /// <summary>
-        /// GetAutomaticallyReloadOnEmptyDelay.
-        /// </summary>
+        // GetAutomaticallyReloadOnEmptyDelay.
         public override float GetAutomaticallyReloadOnEmptyDelay() => automaticReloadOnEmptyDelay;
 
-        /// <summary>
-        /// CanReloadWhenFull.
-        /// </summary>
+        // CanReloadWhenFull.
         public override bool CanReloadWhenFull() => canReloadWhenFull;
-        /// <summary>
-        /// GetRateOfFire.
-        /// </summary>
+        // GetRateOfFire.
         public override float GetRateOfFire() => roundsPerMinutes;
         
-        /// <summary>
-        /// IsFull.
-        /// </summary>
+        // IsFull.
         public override bool IsFull() => ammunitionCurrent == magazineBehaviour.GetAmmunitionTotal();
-        /// <summary>
-        /// HasAmmunition.
-        /// </summary>
+        // HasAmmunition.
         public override bool HasAmmunition() => ammunitionCurrent > 0;
 
-        /// <summary>
-        /// GetAnimatorController.
-        /// </summary>
+        // GetAnimatorController.
         public override RuntimeAnimatorController GetAnimatorController() => controller;
-        /// <summary>
-        /// GetAttachmentManager.
-        /// </summary>
+        // GetAttachmentManager.
         public override WeaponAttachmentManagerBehaviour GetAttachmentManager() => attachmentManager;
 
         #endregion
 
         #region METHODS
 
-        /// <summary>
-        /// Reload.
-        /// </summary>
+        // Reload.
         public override void Reload()
         {
             //Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
@@ -410,9 +326,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Play Reload Animation.
             animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
-        /// <summary>
-        /// Fire.
-        /// </summary>
+        // Fire.
         public override void Fire(float spreadMultiplier = 1.0f)
         {
             //We need a muzzle in order to fire this weapon!
@@ -453,18 +367,14 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
 
-        /// <summary>
-        /// FillAmmunition.
-        /// </summary>
+        // FillAmmunition.
         public override void FillAmmunition(int amount)
         {
             //Update the value by a certain amount.
             ammunitionCurrent = amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount, 
                 0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal();
         }
-        /// <summary>
-        /// SetSlideBack.
-        /// </summary>
+        // SetSlideBack.
         public override void SetSlideBack(int back)
         {
             //Set the slide back bool.
@@ -472,9 +382,7 @@ namespace InfimaGames.LowPolyShooterPack
             animator.SetBool(boolName, back != 0);
         }
 
-        /// <summary>
-        /// EjectCasing.
-        /// </summary>
+        // EjectCasing.
         public override void EjectCasing()
         {
             //Spawn casing prefab at spawn point.

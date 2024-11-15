@@ -2,16 +2,12 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Handles all the animation events that come from the weapon in the asset.
-    /// </summary>
+    // Handles all the animation events that come from the weapon in the asset.
     public class WeaponAnimationEventHandler : MonoBehaviour
     {
         #region FIELDS
 
-        /// <summary>
-        /// Equipped Weapon.
-        /// </summary>
+        // Equipped Weapon.
         private WeaponBehaviour weapon;
 
         #endregion
@@ -28,9 +24,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region ANIMATION
 
-        /// <summary>
-        /// Ejects a casing from this weapon. This function is called from an Animation Event.
-        /// </summary>
+        // Ejects a casing from this weapon. This function is called from an Animation Event.
         private void OnEjectCasing()
         {
             //Notify.

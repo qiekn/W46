@@ -4,18 +4,12 @@
     {
         #region FIELDS
         
-        /// <summary>
-        /// Array of all weapons. These are gotten in the order that they are parented to this object.
-        /// </summary>
+        // Array of all weapons. These are gotten in the order that they are parented to this object.
         private WeaponBehaviour[] weapons;
         
-        /// <summary>
-        /// Currently equipped WeaponBehaviour.
-        /// </summary>
+        // Currently equipped WeaponBehaviour.
         private WeaponBehaviour equipped;
-        /// <summary>
-        /// Currently equipped index.
-        /// </summary>
+        // Currently equipped index.
         private int equippedIndex = -1;
 
         #endregion

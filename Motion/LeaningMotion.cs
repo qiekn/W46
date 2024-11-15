@@ -2,10 +2,8 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LeaningMotion. This component handles all leaning-related procedural animation through the MotionApplier
-    /// system!
-    /// </summary>
+    // LeaningMotion. This component handles all leaning-related procedural animation through the MotionApplier
+    // system!
     public class LeaningMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -32,27 +30,19 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Spring Location. Used to get the GameObject leaning.
-        /// </summary>
+        // Spring Location. Used to get the GameObject leaning.
         private readonly Spring springLocation = new Spring();
-        /// <summary>
-        /// Spring Rotation. Used to get the GameObject leaning.
-        /// </summary>
+        // Spring Rotation. Used to get the GameObject leaning.
         private readonly Spring springRotation = new Spring();
 
-        /// <summary>
-        /// Leaning curves to play.
-        /// </summary>
+        // Leaning curves to play.
         private ACurves leaningCurves;
         
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check for reference errors.
@@ -102,9 +92,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check Reference.
@@ -114,9 +102,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return springLocation.Evaluate(leaningCurves.LocationSpring);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {           
             //Check Reference.

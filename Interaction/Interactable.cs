@@ -2,9 +2,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Interactable.
-    /// </summary>
+    // Interactable.
     public abstract class Interactable : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -17,39 +15,27 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake(){}
 
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         protected virtual void Start(){}
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected virtual void Update(){}
 
-        /// <summary>
-        /// Fixed Update.
-        /// </summary>
+        // Fixed Update.
         protected virtual void FixedUpdate(){}
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Called to interact with this object.
-        /// </summary>
-        /// <param name="actor">The actor starting the interaction.</param>
+        // Called to interact with this object.
+        // <param name="actor">The actor starting the interaction.</param>
         public abstract void Interact(GameObject actor = null);
         
         #endregion

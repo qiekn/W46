@@ -2,14 +2,10 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Helper StateMachineBehaviour that allows us to more easily play a specific weapon sound.
-    /// </summary>
+    // Helper StateMachineBehaviour that allows us to more easily play a specific weapon sound.
     public class PlaySoundCharacterBehaviour : StateMachineBehaviour
     {
-        /// <summary>
-        /// Type of weapon sound.
-        /// </summary>
+        // Type of weapon sound.
         private enum SoundType
         {
             //Character Actions.
@@ -48,28 +44,20 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Player Character.
-        /// </summary>
+        // Player Character.
         private CharacterBehaviour playerCharacter;
 
-        /// <summary>
-        /// Player Inventory.
-        /// </summary>
+        // Player Inventory.
         private InventoryBehaviour playerInventory;
 
-        /// <summary>
-        /// The service that handles sounds.
-        /// </summary>
+        // The service that handles sounds.
         private IAudioManagerService audioManagerService;
 
         #endregion
         
         #region UNITY
 
-        /// <summary>
-        /// On State Enter.
-        /// </summary>
+        // On State Enter.
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             //We need to get the character component.

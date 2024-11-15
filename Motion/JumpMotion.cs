@@ -2,10 +2,8 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// JumpMotion. This component makes an object play correct jumping and falling curves when the character is in those
-    /// specific states.
-    /// </summary>
+    // JumpMotion. This component makes an object play correct jumping and falling curves when the character is in those
+    // specific states.
     public class JumpMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -32,27 +30,19 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// The location spring.
-        /// </summary>
+        // The location spring.
         private readonly Spring springLocation = new Spring();
-        /// <summary>
-        /// The rotation spring.
-        /// </summary>
+        // The rotation spring.
         private readonly Spring springRotation = new Spring();
 
-        /// <summary>
-        /// Represents the curves currently being played by this component.
-        /// </summary>
+        // Represents the curves currently being played by this component.
         private ACurves playedCurves;
         
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check References.
@@ -150,9 +140,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check for playedCurves.
@@ -162,9 +150,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return springLocation.Evaluate(playedCurves.LocationSpring);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {
             //Check for playedCurves.

@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Play Sound Behaviour. Plays an AudioClip using our custom AudioManager!
-    /// </summary>
+    // Play Sound Behaviour. Plays an AudioClip using our custom AudioManager!
     public class PlaySoundBehaviour : StateMachineBehaviour
     {
         #region FIELDS SERIALIZED
@@ -21,9 +19,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private AudioSettings settings = new AudioSettings(1.0f, 0.0f, true);
 
-        /// <summary>
-        /// Audio Manager Service. Handles all game audio.
-        /// </summary>
+        // Audio Manager Service. Handles all game audio.
         private IAudioManagerService audioManagerService;
 
         #endregion

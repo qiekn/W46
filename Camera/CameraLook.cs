@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Camera Look. Handles the rotation of the camera.
-    /// </summary>
+    // Camera Look. Handles the rotation of the camera.
     public class CameraLook : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -33,31 +31,21 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Player Character.
-        /// </summary>
+        // Player Character.
         private CharacterBehaviour playerCharacter;
-        /// <summary>
-        /// The player character's rigidbody component.
-        /// </summary>
+        // The player character's rigidbody component.
         private Rigidbody playerCharacterRigidbody;
 
-        /// <summary>
-        /// The player character's rotation.
-        /// </summary>
+        // The player character's rotation.
         private Quaternion rotationCharacter;
-        /// <summary>
-        /// The camera's rotation.
-        /// </summary>
+        // The camera's rotation.
         private Quaternion rotationCamera;
 
         #endregion
         
         #region UNITY
         
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         private void Start()
         {
             //Get Player Character.
@@ -68,9 +56,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Cache the camera's initial rotation.
             rotationCamera = transform.localRotation;
         }
-        /// <summary>
-        /// LateUpdate.
-        /// </summary>
+        // LateUpdate.
         private void LateUpdate()
         {
             //Frame Input. The Input to add this frame!
@@ -120,9 +106,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FUNCTIONS
 
-        /// <summary>
-        /// Clamps the pitch of a quaternion according to our clamps.
-        /// </summary>
+        // Clamps the pitch of a quaternion according to our clamps.
         private Quaternion Clamp(Quaternion rotation)
         {
             rotation.x /= rotation.w;

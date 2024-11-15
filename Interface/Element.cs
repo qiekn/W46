@@ -2,39 +2,27 @@
 
 namespace InfimaGames.LowPolyShooterPack.Interface
 {
-    /// <summary>
-    /// Interface Element.
-    /// </summary>
+    // Interface Element.
     public abstract class Element : MonoBehaviour
     {
         #region FIELDS
         
-        /// <summary>
-        /// Game Mode Service.
-        /// </summary>
+        // Game Mode Service.
         protected IGameModeService gameModeService;
         
-        /// <summary>
-        /// Player Character.
-        /// </summary>
+        // Player Character.
         protected CharacterBehaviour characterBehaviour;
-        /// <summary>
-        /// Player Character Inventory.
-        /// </summary>
+        // Player Character Inventory.
         protected InventoryBehaviour inventoryBehaviour;
 
-        /// <summary>
-        /// Equipped Weapon.
-        /// </summary>
+        // Equipped Weapon.
         protected WeaponBehaviour equippedWeaponBehaviour;
         
         #endregion
 
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake()
         {
             //Get Game Mode Service. Very useful to get Game Mode references.
@@ -46,9 +34,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
             inventoryBehaviour = characterBehaviour.GetInventory();
         }
         
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Ignore if we don't have an Inventory.
@@ -66,9 +52,7 @@ namespace InfimaGames.LowPolyShooterPack.Interface
 
         #region METHODS
 
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         protected virtual void Tick() {}
 
         #endregion

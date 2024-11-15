@@ -6,189 +6,113 @@ namespace InfimaGames.LowPolyShooterPack
     {
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake(){}
 
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         protected virtual void Start(){}
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected virtual void Update(){}
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
 
         #region GETTERS
 
-        /// <summary>
-        /// Returns the sprite to use when displaying the weapon's body.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the sprite to use when displaying the weapon's body.
+        // <returns></returns>
         public abstract Sprite GetSpriteBody();
-        /// <summary>
-        /// Returns the value of multiplierMovementSpeed;
-        /// </summary>
+        // Returns the value of multiplierMovementSpeed;
         public abstract float GetMultiplierMovementSpeed();
 
-        /// <summary>
-        /// Returns the holster audio clip.
-        /// </summary>
+        // Returns the holster audio clip.
         public abstract AudioClip GetAudioClipHolster();
-        /// <summary>
-        /// Returns the unholster audio clip.
-        /// </summary>
+        // Returns the unholster audio clip.
         public abstract AudioClip GetAudioClipUnholster();
 
-        /// <summary>
-        /// Returns the reload audio clip.
-        /// </summary>
+        // Returns the reload audio clip.
         public abstract AudioClip GetAudioClipReload();
-        /// <summary>
-        /// Returns the reload empty audio clip.
-        /// </summary>
+        // Returns the reload empty audio clip.
         public abstract AudioClip GetAudioClipReloadEmpty();
         
-        /// <summary>
-        /// Returns the reload open audio clip.
-        /// </summary>
+        // Returns the reload open audio clip.
         public abstract AudioClip GetAudioClipReloadOpen();
-        /// <summary>
-        /// Returns the reload insert audio clip.
-        /// </summary>
+        // Returns the reload insert audio clip.
         public abstract AudioClip GetAudioClipReloadInsert();
-        /// <summary>
-        /// Returns the reload close audio clip.
-        /// </summary>
+        // Returns the reload close audio clip.
         public abstract AudioClip GetAudioClipReloadClose();
 
-        /// <summary>
-        /// Returns the fire empty audio clip.
-        /// </summary>
+        // Returns the fire empty audio clip.
         public abstract AudioClip GetAudioClipFireEmpty();
-        /// <summary>
-        /// Returns the bolt action audio clip.
-        /// </summary>
+        // Returns the bolt action audio clip.
         public abstract AudioClip GetAudioClipBoltAction();
 
-        /// <summary>
-        /// Returns the fire audio clip.
-        /// </summary>
+        // Returns the fire audio clip.
         public abstract AudioClip GetAudioClipFire();
         
-        /// <summary>
-        /// Returns Current Ammunition. 
-        /// </summary>
+        // Returns Current Ammunition. 
         public abstract int GetAmmunitionCurrent();
-        /// <summary>
-        /// Returns Total Ammunition.
-        /// </summary>
+        // Returns Total Ammunition.
         public abstract int GetAmmunitionTotal();
 
-        /// <summary>
-        /// Determines if this Weapon reloads in cycles.
-        /// </summary>
+        // Determines if this Weapon reloads in cycles.
         public abstract bool HasCycledReload();
 
-        /// <summary>
-        /// Returns the Weapon's Animator component.
-        /// </summary>
+        // Returns the Weapon's Animator component.
         public abstract Animator GetAnimator();
 
-        /// <summary>
-        /// Returns the value of canReloadAimed.
-        /// </summary>
+        // Returns the value of canReloadAimed.
         public abstract bool CanReloadAimed();
         
-        /// <summary>
-        /// Returns true if this weapon shoots in automatic.
-        /// </summary>
+        // Returns true if this weapon shoots in automatic.
         public abstract bool IsAutomatic();
-        /// <summary>
-        /// Returns true if the weapon has any ammunition left.
-        /// </summary>
+        // Returns true if the weapon has any ammunition left.
         public abstract bool HasAmmunition();
 
-        /// <summary>
-        /// Returns true if the weapon is full of ammunition.
-        /// </summary>
+        // Returns true if the weapon is full of ammunition.
         public abstract bool IsFull();
-        /// <summary>
-        /// Returns true if this is a bolt-action weapon.
-        /// </summary>
+        // Returns true if this is a bolt-action weapon.
         public abstract bool IsBoltAction();
 
-        /// <summary>
-        /// Returns true if the weapon should be automatically reload when empty.
-        /// </summary>
+        // Returns true if the weapon should be automatically reload when empty.
         public abstract bool GetAutomaticallyReloadOnEmpty();
-        /// <summary>
-        /// Returns the delay after firing the last shot when the weapon should start automatically reloading.
-        /// </summary>
+        // Returns the delay after firing the last shot when the weapon should start automatically reloading.
         public abstract float GetAutomaticallyReloadOnEmptyDelay();
 
-        /// <summary>
-        /// Can this weapon be reloaded when it is full?
-        /// </summary>
+        // Can this weapon be reloaded when it is full?
         public abstract bool CanReloadWhenFull();
-        /// <summary>
-        /// Returns the weapon's rate of fire.
-        /// </summary>
+        // Returns the weapon's rate of fire.
         public abstract float GetRateOfFire();
 
-        /// <summary>
-        /// Returns the field of view multiplier when aiming.
-        /// </summary>
+        // Returns the field of view multiplier when aiming.
         public abstract float GetFieldOfViewMultiplierAim();
-        /// <summary>
-        /// Returns the field of view multiplier when aiming for the weapon camera.
-        /// </summary>
+        // Returns the field of view multiplier when aiming for the weapon camera.
         public abstract float GetFieldOfViewMultiplierAimWeapon();
 
-        /// <summary>
-        /// Returns the RuntimeAnimationController the Character needs to use when this Weapon is equipped!
-        /// </summary>
+        // Returns the RuntimeAnimationController the Character needs to use when this Weapon is equipped!
         public abstract RuntimeAnimatorController GetAnimatorController();
-        /// <summary>
-        /// Returns the weapon's attachment manager component.
-        /// </summary>
+        // Returns the weapon's attachment manager component.
         public abstract WeaponAttachmentManagerBehaviour GetAttachmentManager();
         
         #endregion
 
         #region METHODS
 
-        /// <summary>
-        /// Fires the weapon.
-        /// </summary>
-        /// <param name="spreadMultiplier">Value to multiply the weapon's spread by. Very helpful to account for aimed spread multipliers.</param>
+        // Fires the weapon.
+        // <param name="spreadMultiplier">Value to multiply the weapon's spread by. Very helpful to account for aimed spread multipliers.</param>
         public abstract void Fire(float spreadMultiplier = 1.0f);
-        /// <summary>
-        /// Reloads the weapon.
-        /// </summary>
+        // Reloads the weapon.
         public abstract void Reload();
 
-        /// <summary>
-        /// Fills the character's equipped weapon's ammunition by a certain amount, or fully if set to -1.
-        /// </summary>
+        // Fills the character's equipped weapon's ammunition by a certain amount, or fully if set to -1.
         public abstract void FillAmmunition(int amount);
-        /// <summary>
-        /// Sets the slide back pose.
-        /// </summary>
+        // Sets the slide back pose.
         public abstract void SetSlideBack(int back);
 
-        /// <summary>
-        /// Ejects a casing from the weapon. This is commonly called from animation events, but can be called from anywhere.
-        /// </summary>
+        // Ejects a casing from the weapon. This is commonly called from animation events, but can be called from anywhere.
         public abstract void EjectCasing();
 
         #endregion

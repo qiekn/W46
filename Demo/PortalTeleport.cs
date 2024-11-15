@@ -9,9 +9,7 @@ using UnityEditor.SceneManagement;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Teleport Portal. Helpful to switch levels!
-    /// </summary>
+    // Teleport Portal. Helpful to switch levels!
     public class PortalTeleport : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -63,9 +61,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region METHODS
 
-        /// <summary>
-        /// Load the level!
-        /// </summary>
+        // Load the level!
         private IEnumerator LoadScene()
         {
             //Activate the UI object.
@@ -98,9 +94,7 @@ namespace InfimaGames.LowPolyShooterPack
             gameObject.SetActive(false);
         }
 
-        /// <summary>
-        /// Loading Screen Fade.
-        /// </summary>
+        // Loading Screen Fade.
         private IEnumerator FadeLoadingScreen(float targetValue, float duration)
         {
             float startValue = canvasGroup.alpha;

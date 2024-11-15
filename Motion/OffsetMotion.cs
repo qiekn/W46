@@ -2,9 +2,7 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// OffsetMotion. Used to offset an object based on some state values.
-    /// </summary>
+    // OffsetMotion. Used to offset an object based on some state values.
     public class OffsetMotion : Motion
     {
         #region FIELDS SERIALIZED
@@ -35,27 +33,19 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// springLocation. Handles all location interpolation.
-        /// </summary>
+        // springLocation. Handles all location interpolation.
         private readonly Spring springLocation = new Spring();
-        /// <summary>
-        /// springRotation. Handles all rotation interpolation.
-        /// </summary>
+        // springRotation. Handles all rotation interpolation.
         private readonly Spring springRotation = new Spring();
 
-        /// <summary>
-        /// FeelState.
-        /// </summary>
+        // FeelState.
         private FeelState feelState;
         
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Tick.
-        /// </summary>
+        // Tick.
         public override void Tick()
         {
             //Check for reference errors.
@@ -179,9 +169,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
         
-        /// <summary>
-        /// GetLocation.
-        /// </summary>
+        // GetLocation.
         public override Vector3 GetLocation()
         {
             //Check References.
@@ -191,9 +179,7 @@ namespace InfimaGames.LowPolyShooterPack
             //Return.
             return springLocation.Evaluate(feelState.Offset.SpringSettingsLocation);
         }
-        /// <summary>
-        /// GetEulerAngles.
-        /// </summary>
+        // GetEulerAngles.
         public override Vector3 GetEulerAngles()
         {
             //Check References.

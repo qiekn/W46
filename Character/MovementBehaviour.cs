@@ -2,112 +2,72 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Abstract movement class. Handles interactions with the main movement component.
-    /// </summary>
+    // Abstract movement class. Handles interactions with the main movement component.
     public abstract class MovementBehaviour : MonoBehaviour
     {
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake(){}
 
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         protected virtual void Start(){}
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected virtual void Update(){}
 
-        /// <summary>
-        /// Fixed Update.
-        /// </summary>
+        // Fixed Update.
         protected virtual void FixedUpdate(){}
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
 
         #region GETTERS
 
-        /// <summary>
-        /// Returns the last Time.time value at which the character jumped.
-        /// </summary>
+        // Returns the last Time.time value at which the character jumped.
         public abstract float GetLastJumpTime();
         
-        /// <summary>
-        /// Returns the value of MultiplierForward.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the value of MultiplierForward.
+        // <returns></returns>
         public abstract float GetMultiplierForward();
-        /// <summary>
-        /// Returns the value of MultiplierSideways.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the value of MultiplierSideways.
+        // <returns></returns>
         public abstract float GetMultiplierSideways();
-        /// <summary>
-        /// Returns the value of MultiplierBackwards.
-        /// </summary>
-        /// <returns></returns>
+        // Returns the value of MultiplierBackwards.
+        // <returns></returns>
         public abstract float GetMultiplierBackwards();
 
-        /// <summary>
-        /// Returns the character's current velocity.
-        /// </summary>
+        // Returns the character's current velocity.
         public abstract Vector3 GetVelocity();
-        /// <summary>
-        /// Returns true if the character is grounded.
-        /// </summary>
+        // Returns true if the character is grounded.
         public abstract bool IsGrounded();
-        /// <summary>
-        /// Returns last frame's IsGrounded value.
-        /// </summary>
+        // Returns last frame's IsGrounded value.
         public abstract bool WasGrounded();
         
-        /// <summary>
-        /// Returns true if the character is jumping.
-        /// </summary>
+        // Returns true if the character is jumping.
         public abstract bool IsJumping();
 
-        /// <summary>
-        /// Returns true if the character can set its crouching value to the passed parameter.
-        /// </summary>
+        // Returns true if the character can set its crouching value to the passed parameter.
         public abstract bool CanCrouch(bool newCrouching);
-        /// <summary>
-        /// Returns true if the character is crouching.
-        /// </summary>
+        // Returns true if the character is crouching.
         public abstract bool IsCrouching();
 
         #endregion
 
         #region METHODS
 
-        /// <summary>
-        /// Calling this will make the character jump!
-        /// </summary>
+        // Calling this will make the character jump!
         public abstract void Jump();
-        /// <summary>
-        /// Forces crouch/un-crouch!
-        /// </summary>
+        // Forces crouch/un-crouch!
         public abstract void Crouch(bool crouching);
 
-        /// <summary>
-        /// Tries to crouch/un-crouch.
-        /// </summary>
+        // Tries to crouch/un-crouch.
         public abstract void TryCrouch(bool value);
         
-        /// <summary>
-        /// Tries to toggle the crouching state. This method should also make sure to handle any automatic
-        /// un-crouching that may happen when the character stops being under an object.
-        /// </summary>
+        // Tries to toggle the crouching state. This method should also make sure to handle any automatic
+        // un-crouching that may happen when the character stops being under an object.
         public abstract void TryToggleCrouch();
 
         #endregion

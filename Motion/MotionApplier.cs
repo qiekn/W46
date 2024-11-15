@@ -3,15 +3,11 @@ using System.Collections.Generic;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// ApplyMode. Determines how a MotionApplier should apply the values from the Motions that are subscribed to it.
-    /// </summary>
+    // ApplyMode. Determines how a MotionApplier should apply the values from the Motions that are subscribed to it.
     public enum ApplyMode { Override, Add }
     
-    /// <summary>
-    /// MotionApplier. Applies all location, rotation values from Motion components subscribed to it in accordance with the
-    /// settings of this component.
-    /// </summary>
+    // MotionApplier. Applies all location, rotation values from Motion components subscribed to it in accordance with the
+    // settings of this component.
     public class MotionApplier : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -26,31 +22,23 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Subscribed Motions.
-        /// </summary>
+        // Subscribed Motions.
         private readonly List<Motion> motions = new List<Motion>();
 
-        /// <summary>
-        /// This Transform.
-        /// </summary>
+        // This Transform.
         private Transform thisTransform;
 
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Cache.
             thisTransform = transform;
         }
-        /// <summary>
-        /// LateUpdate.
-        /// </summary>
+        // LateUpdate.
         private void LateUpdate()
         {
             //Final Location.
@@ -88,10 +76,8 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
         
-        /// <summary>
-        /// Subscribe a Motion to this MotionApplier. This means that the Motion's results every frame will be computed,
-        /// and applied, by this MotionApplier.
-        /// </summary>
+        // Subscribe a Motion to this MotionApplier. This means that the Motion's results every frame will be computed,
+        // and applied, by this MotionApplier.
         public void Subscribe(Motion motion) => motions.Add(motion);
         
         #endregion

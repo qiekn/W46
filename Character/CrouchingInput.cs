@@ -3,9 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Crouching Input.
-    /// </summary>
+    // Crouching Input.
     public class CrouchingInput : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -30,18 +28,14 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// holding. If true, the player is holding the crouching button.
-        /// </summary>
+        // holding. If true, the player is holding the crouching button.
         private bool holding;
 
         #endregion
 
         #region UNITY
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Change the crouching state based on whether we're holding if we need to.
@@ -54,11 +48,9 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region INPUT
 
-        /// <summary>
-        /// Crouch. Calling this from the new Unity Input component will directly make the character
-        /// crouch/un-crouch depending on its state.
-        /// Keep in mind that this method is called from an input event, so it doesn't have any direct references.
-        /// </summary>
+        // Crouch. Calling this from the new Unity Input component will directly make the character
+        // crouch/un-crouch depending on its state.
+        // Keep in mind that this method is called from an input event, so it doesn't have any direct references.
         public void Crouch(InputAction.CallbackContext context)
         {
             //Check that all our references are correctly assigned.

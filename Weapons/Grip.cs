@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Grip.
-    /// </summary>
+    // Grip.
     public class Grip : GripBehaviour
     {
         #region FIELDS SERIALIZED

@@ -2,23 +2,15 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Audio Settings used to interact with the AudioManagerService.
-    /// </summary>
+    // Audio Settings used to interact with the AudioManagerService.
     [System.Serializable]
     public struct AudioSettings
     {
-        /// <summary>
-        /// Automatic Cleanup Getter.
-        /// </summary>
+        // Automatic Cleanup Getter.
         public bool AutomaticCleanup => automaticCleanup;
-        /// <summary>
-        /// Volume Getter.
-        /// </summary>
+        // Volume Getter.
         public float Volume => volume;
-        /// <summary>
-        /// Spatial Blend Getter.
-        /// </summary>
+        // Spatial Blend Getter.
         public float SpatialBlend => spatialBlend;
 
         [Header("Settings")]
@@ -37,9 +29,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private float spatialBlend;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
+        // Constructor.
         public AudioSettings(float volume = 1.0f, float spatialBlend = 0.0f, bool automaticCleanup = true)
         {
             //Volume.

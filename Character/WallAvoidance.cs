@@ -2,16 +2,12 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// WallAvoidance. This component handles lowering the character's equipped item when near a wall.
-    /// </summary>
+    // WallAvoidance. This component handles lowering the character's equipped item when near a wall.
     public class WallAvoidance : MonoBehaviour
     {
         #region PROPERTIES
         
-        /// <summary>
-        /// HasWall.
-        /// </summary>
+        // HasWall.
         public bool HasWall => hasWall;
 
         #endregion
@@ -44,18 +40,14 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
         
-        /// <summary>
-        /// True if there is a wall that the character is looking at.
-        /// </summary>
+        // True if there is a wall that the character is looking at.
         private bool hasWall;
         
         #endregion
         
         #region METHODS
         
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Check References.

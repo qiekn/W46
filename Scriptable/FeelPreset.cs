@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// FeelPreset. Holds all the Feel objects needed to create an overall feel for the game.
-    /// </summary>
+    // FeelPreset. Holds all the Feel objects needed to create an overall feel for the game.
     [CreateAssetMenu(fileName = "SO_Feel_Preset", menuName = "Infima Games/Low Poly Shooter Pack/Feel Preset", order = 0)]
     public class FeelPreset : ScriptableObject
     {
@@ -26,9 +24,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FUNCTIONS
 
-        /// <summary>
-        /// GetFeel. Returns the correct feel based on parameters.
-        /// </summary>
+        // GetFeel. Returns the correct feel based on parameters.
         public Feel GetFeel(MotionType motionType)
         {
             //Switch.

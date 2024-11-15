@@ -2,11 +2,9 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Camera Height. This component helps the camera always be in the correct location relative
-    /// to the current character height. This means that no matter whether the character is crouching
-    /// or not, the camera will be at the correct location.
-    /// </summary>
+    // Camera Height. This component helps the camera always be in the correct location relative
+    // to the current character height. This means that no matter whether the character is crouching
+    // or not, the camera will be at the correct location.
     public class CameraHeight : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -28,18 +26,14 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Current height of the camera.
-        /// </summary>
+        // Current height of the camera.
         private float height = 1.8f;
         
         #endregion
         
         #region UNITY
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Check for missing references.

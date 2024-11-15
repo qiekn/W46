@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Footstep Player. This component is in charge of playing footstep sounds for the player.
-    /// We have this a separate component so as to make sure that it can be super easily removed, and replaced
-    /// for a more custom implementation, as our setup is quite basic at the moment.
-    /// </summary>
+    // Footstep Player. This component is in charge of playing footstep sounds for the player.
+    // We have this a separate component so as to make sure that it can be super easily removed, and replaced
+    // for a more custom implementation, as our setup is quite basic at the moment.
     public class FootstepPlayer : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -45,9 +43,7 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region UNITY
         
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         private void Awake()
         {
             //Make sure we have an Audio Source assigned.
@@ -59,9 +55,7 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Check for missing references.

@@ -2,27 +2,19 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LowerData. Contains all the information needed by a character to lower its weapon with some nice
-    /// motion, and nice offsets.
-    /// </summary>
+    // LowerData. Contains all the information needed by a character to lower its weapon with some nice
+    // motion, and nice offsets.
     [CreateAssetMenu(fileName = "SO_Lower_Name", menuName = "Infima Games/Low Poly Shooter Pack/Lower Data", order = 0)]
     public class LowerData : ScriptableObject
     {
         #region PROPERTIES
         
-        /// <summary>
-        /// Interpolation.
-        /// </summary>
+        // Interpolation.
         public SpringSettings Interpolation => interpolation;
 
-        /// <summary>
-        /// LocationOffset.
-        /// </summary>
+        // LocationOffset.
         public Vector3 LocationOffset => locationOffset;
-        /// <summary>
-        /// RotationOffset.
-        /// </summary>
+        // RotationOffset.
         public Vector3 RotationOffset => rotationOffset;
         
         #endregion

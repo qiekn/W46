@@ -3,10 +3,8 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LaserToggleInput. This class is called from the PlayerInput component, and tries to toggle the equipped weapon's flashlight/laser
-    /// on/off.
-    /// </summary>
+    // LaserToggleInput. This class is called from the PlayerInput component, and tries to toggle the equipped weapon's flashlight/laser
+    // on/off.
     public class LaserToggleInput : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -25,27 +23,19 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// Equipped Laser.
-        /// </summary>
+        // Equipped Laser.
         private LaserBehaviour laserBehaviour;
 
-        /// <summary>
-        /// Last Frame's Aiming Value.
-        /// </summary>
+        // Last Frame's Aiming Value.
         private bool wasAiming;
-        /// <summary>
-        /// Last Frame's Running Value.
-        /// </summary>
+        // Last Frame's Running Value.
         private bool wasRunning;
         
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Check References.
@@ -109,9 +99,7 @@ namespace InfimaGames.LowPolyShooterPack
             wasRunning = running;
         }
 
-        /// <summary>
-        /// Input.
-        /// </summary>
+        // Input.
         public void Input(InputAction.CallbackContext context)
         {
             //Switch.
@@ -125,9 +113,7 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
 
-        /// <summary>
-        /// Toggle.
-        /// </summary>
+        // Toggle.
         private void Toggle()
         {
 			//Check Reference.

@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Character Demonstration.
-    /// </summary>
+    // Character Demonstration.
     public class CharacterDemonstration : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -21,13 +19,9 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region FIELDS
 
-        /// <summary>
-        /// Mesh Filter.
-        /// </summary>
+        // Mesh Filter.
         private MeshFilter meshFilter;
-        /// <summary>
-        /// Mesh Renderer.
-        /// </summary>
+        // Mesh Renderer.
         private MeshRenderer meshRenderer;
 
         #endregion
@@ -46,11 +40,9 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region METHODS
         
-        /// <summary>
-        /// Spawns a magazine, and hides the one visible, depending on the drop value.
-        /// </summary>
-        /// <param name="drop">If true, a magazine is spawned, and the visual one is hidden, otherwise the visual
-        /// magazine is made visible.</param>
+        // Spawns a magazine, and hides the one visible, depending on the drop value.
+        // <param name="drop">If true, a magazine is spawned, and the visual one is hidden, otherwise the visual
+        // magazine is made visible.</param>
         public void DropMagazine(bool drop = true)
         {
             //Disable magazine when dropping! This avoids having double magazines!

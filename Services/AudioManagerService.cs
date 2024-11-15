@@ -3,32 +3,20 @@ using System.Collections;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Manages the spawning and playing of sounds.
-    /// </summary>
+    // Manages the spawning and playing of sounds.
     public class AudioManagerService : MonoBehaviour, IAudioManagerService
     {
-        /// <summary>
-        /// Contains data related to playing a OneShot audio.
-        /// </summary>
+        // Contains data related to playing a OneShot audio.
         private readonly struct OneShotCoroutine
         {
-            /// <summary>
-            /// Audio Clip.
-            /// </summary>
+            // Audio Clip.
             public AudioClip Clip { get; }
-            /// <summary>
-            /// Audio Settings.
-            /// </summary>
+            // Audio Settings.
             public AudioSettings Settings { get; }
-            /// <summary>
-            /// Delay.
-            /// </summary>
+            // Delay.
             public float Delay { get; }
             
-            /// <summary>
-            /// Constructor.
-            /// </summary>
+            // Constructor.
             public OneShotCoroutine(AudioClip clip, AudioSettings settings, float delay)
             {
                 //Clip.
@@ -40,9 +28,7 @@ namespace InfimaGames.LowPolyShooterPack
             }
         }
 
-        /// <summary>
-        /// Checks if an AudioSource is valid, and playing!
-        /// </summary>
+        // Checks if an AudioSource is valid, and playing!
         private bool IsPlayingSource(AudioSource source)
         {
             //Make sure we still have a source!
@@ -53,9 +39,7 @@ namespace InfimaGames.LowPolyShooterPack
             return source.isPlaying;
         }
 
-        /// <summary>
-        /// Destroys the audio source once it has finished playing.
-        /// </summary>
+        // Destroys the audio source once it has finished playing.
         private IEnumerator DestroySourceWhenFinished(AudioSource source)
         {
             //Wait for the audio source to complete playing the clip.
@@ -67,9 +51,7 @@ namespace InfimaGames.LowPolyShooterPack
                 DestroyImmediate(source.gameObject);
         }
 
-        /// <summary>
-        /// Waits for a certain amount of time before starting to play a one shot sound.
-        /// </summary>
+        // Waits for a certain amount of time before starting to play a one shot sound.
         private IEnumerator PlayOneShotAfterDelay(OneShotCoroutine value)
         {
             //Wait for the delay.
@@ -78,9 +60,7 @@ namespace InfimaGames.LowPolyShooterPack
             PlayOneShot_Internal(value.Clip, value.Settings);
         }
         
-        /// <summary>
-        /// Internal PlayOneShot. Basically does the whole function's name!
-        /// </summary>
+        // Internal PlayOneShot. Basically does the whole function's name!
         private void PlayOneShot_Internal(AudioClip clip, AudioSettings settings)
         {
             //No need to do absolutely anything if the clip is null.

@@ -2,54 +2,36 @@ using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Interactor Behaviour.
-    /// </summary>
+    // Interactor Behaviour.
     public abstract class InteractorBehaviour : MonoBehaviour
     {
         #region UNITY
 
-        /// <summary>
-        /// Awake.
-        /// </summary>
+        // Awake.
         protected virtual void Awake(){}
 
-        /// <summary>
-        /// Start.
-        /// </summary>
+        // Start.
         protected virtual void Start(){}
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         protected virtual void Update(){}
 
-        /// <summary>
-        /// Fixed Update.
-        /// </summary>
+        // Fixed Update.
         protected virtual void FixedUpdate(){}
 
-        /// <summary>
-        /// Late Update.
-        /// </summary>
+        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
 
         #region GETTERS
 
-        /// <summary>
-        /// Returns true if an interaction is viable.
-        /// </summary>
+        // Returns true if an interaction is viable.
         public abstract bool CanInteract();
 
-        /// <summary>
-        /// Returns the result of the interaction trace.
-        /// </summary>
+        // Returns the result of the interaction trace.
         public abstract RaycastHit GetHitResult();
-        /// <summary>
-        /// Returns the current interactable found by the trace.
-        /// </summary>
+        // Returns the current interactable found by the trace.
         public abstract Interactable GetInteractable();
 
         #endregion

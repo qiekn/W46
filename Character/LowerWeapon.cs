@@ -3,10 +3,8 @@ using UnityEngine.InputSystem;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// LowerWeapon. This component handles lowering the character's weapon when the player wants to, or
-    /// in specific situations where it is needed.
-    /// </summary>
+    // LowerWeapon. This component handles lowering the character's weapon when the player wants to, or
+    // in specific situations where it is needed.
     public class LowerWeapon : MonoBehaviour
     {
         #region FIELDS SERIALIZED
@@ -41,24 +39,18 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region FIELDS
         
-        /// <summary>
-        /// If true, the character has their weapon lowered, and in a state where there's not many actions that
-        /// can be performed.
-        /// </summary>
+        // If true, the character has their weapon lowered, and in a state where there's not many actions that
+        // can be performed.
         private bool lowered;
-        /// <summary>
-        /// This becomes true when the player asks for the weapon to be lowered, but may not directly make the weapon
-        /// lowered depending on other states that are active.
-        /// </summary>
+        // This becomes true when the player asks for the weapon to be lowered, but may not directly make the weapon
+        // lowered depending on other states that are active.
         private bool loweredPressed;
         
         #endregion
         
         #region UNITY
 
-        /// <summary>
-        /// Update.
-        /// </summary>
+        // Update.
         private void Update()
         {
             //Check References.
@@ -99,21 +91,17 @@ namespace InfimaGames.LowPolyShooterPack
         
         #region GETTERS
         
-        /// <summary>
-        /// This function returns true if the character's weapon is lowered, and in a state where the character
-        /// cannot do as many things.
-        /// </summary>
-        /// <returns></returns>
+        // This function returns true if the character's weapon is lowered, and in a state where the character
+        // cannot do as many things.
+        // <returns></returns>
         public bool IsLowered() => lowered;
         
         #endregion
         
         #region METHODS
 
-        /// <summary>
-        /// Lower. Called to try and lower the character's equipped weapon!
-        /// Keep in mind that this method is called by the PlayerInput component on the main character root.
-        /// </summary>
+        // Lower. Called to try and lower the character's equipped weapon!
+        // Keep in mind that this method is called by the PlayerInput component on the main character root.
         public void Lower(InputAction.CallbackContext context)
         {
             //Block while the cursor is unlocked.

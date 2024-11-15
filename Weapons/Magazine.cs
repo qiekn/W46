@@ -2,9 +2,7 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    /// <summary>
-    /// Magazine.
-    /// </summary>
+    // Magazine.
     public class Magazine : MagazineBehaviour
     {
         #region FIELDS SERIALIZED
@@ -25,13 +23,9 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        /// <summary>
-        /// Ammunition Total.
-        /// </summary>
+        // Ammunition Total.
         public override int GetAmmunitionTotal() => ammunitionTotal;
-        /// <summary>
-        /// Sprite.
-        /// </summary>
+        // Sprite.
         public override Sprite GetSprite() => sprite;
 
         #endregion
