@@ -5,38 +5,20 @@ namespace InfimaGames.LowPolyShooterPack
     // Abstract movement class. Handles interactions with the main movement component.
     public abstract class MovementBehaviour : MonoBehaviour
     {
-        #region UNITY
-
-        // Awake.
+        //NOTE: UNITY
         protected virtual void Awake(){}
-
-        // Start.
         protected virtual void Start(){}
-
-        // Update.
         protected virtual void Update(){}
-
-        // Fixed Update.
         protected virtual void FixedUpdate(){}
-
-        // Late Update.
         protected virtual void LateUpdate(){}
 
-        #endregion
-
-        #region GETTERS
+        //NOTE: GETTERS
 
         // Returns the last Time.time value at which the character jumped.
         public abstract float GetLastJumpTime();
         
-        // Returns the value of MultiplierForward.
-        // <returns></returns>
         public abstract float GetMultiplierForward();
-        // Returns the value of MultiplierSideways.
-        // <returns></returns>
         public abstract float GetMultiplierSideways();
-        // Returns the value of MultiplierBackwards.
-        // <returns></returns>
         public abstract float GetMultiplierBackwards();
 
         // Returns the character's current velocity.
@@ -54,22 +36,18 @@ namespace InfimaGames.LowPolyShooterPack
         // Returns true if the character is crouching.
         public abstract bool IsCrouching();
 
-        #endregion
 
-        #region METHODS
+        //NOTE: METHODS
 
         // Calling this will make the character jump!
         public abstract void Jump();
         // Forces crouch/un-crouch!
         public abstract void Crouch(bool crouching);
-
         // Tries to crouch/un-crouch.
         public abstract void TryCrouch(bool value);
         
         // Tries to toggle the crouching state. This method should also make sure to handle any automatic
         // un-crouching that may happen when the character stops being under an object.
         public abstract void TryToggleCrouch();
-
-        #endregion
     }
 }

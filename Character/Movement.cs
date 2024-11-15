@@ -7,7 +7,7 @@ namespace InfimaGames.LowPolyShooterPack
     // It contains all of the logic relating to moving, running, crouching, jumping...etc
     public class Movement : MovementBehaviour
     {
-        #region FIELDS SERIALIZED
+        //NOTE: FIELDS SERIALIZED
         
         [Title(label: "Acceleration")]
         
@@ -109,9 +109,8 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private float rigidbodyPushForce = 1.0f;
 
-        #endregion
 
-        #region FIELDS
+        //NOTE: FIELDS
 
         // Controller.
         private CharacterController controller;
@@ -140,9 +139,8 @@ namespace InfimaGames.LowPolyShooterPack
         // Stores the Time.time value when the character last jumped.
         private float lastJumpTime;
         
-        #endregion
 
-        #region UNITY FUNCTIONS
+        //NOTE: UNITY FUNCTIONS
 
         // Awake.
         protected override void Awake()
@@ -201,9 +199,8 @@ namespace InfimaGames.LowPolyShooterPack
             hitRigidbody.AddForceAtPosition(force, hit.point);
         }
         
-        #endregion
 
-        #region METHODS
+        //NOTE: METHODS
 
         // Moves the character.
         private void MoveCharacter()
@@ -358,9 +355,8 @@ namespace InfimaGames.LowPolyShooterPack
             Crouch(false);
         }
 
-        #endregion
 
-        #region GETTERS
+        //NOTE: GETTERS
 
         // GetLastJumpTime.
         public override float GetLastJumpTime() => lastJumpTime;
@@ -376,7 +372,5 @@ namespace InfimaGames.LowPolyShooterPack
         public override Vector3 GetVelocity() => controller.velocity;
         // Returns the value of Grounded.
         public override bool IsGrounded() => controller.isGrounded;
-
-        #endregion
     }
 }

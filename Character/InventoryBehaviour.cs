@@ -9,7 +9,6 @@ namespace InfimaGames.LowPolyShooterPack
 
         // Returns the index that is before the current index. Very helpful in order to figure out
         // what the next weapon to equip is.
-        // <returns></returns>
         public abstract int GetLastIndex();
         // Returns the next index after the currently equipped one. Very helpful in order to figure out
         // what the next weapon to equip is.
