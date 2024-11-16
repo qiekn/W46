@@ -3,8 +3,7 @@
 namespace InfimaGames.LowPolyShooterPack
 {
     // Weapon Scope.
-    public class Scope : ScopeBehaviour
-    {
+    public class Scope : ScopeBehaviour {
         #region FIELDS SERIALIZED
     
         [Title(label: "Multipliers")]
@@ -73,23 +72,18 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region UNITY
 
-        // Awake.
-        private void Awake()
-        {
+        private void Awake() {
             //Cache Scope Renderer.
             meshRenderer = GetComponentInChildren<MeshRenderer>();
             
-            //Make sure that the index can exist.
             if (!HasMaterialIndex())
                 return;
             
             //Cache default material.
             materialDefault = meshRenderer.materials[materialIndex];
         }
-        // Start.
-        private void Start()
-        {
-            //Start at the default state.
+
+        private void Start() {
             OnAimStop();
         }
 
@@ -97,44 +91,25 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        // GetMultiplierMouseSensitivity.
-        public override float GetMultiplierMouseSensitivity() => multiplierMouseSensitivity;
-        // GetMultiplierSpread.
-        public override float GetMultiplierSpread() => multiplierSpread;
-
-        // GetOffsetAimingLocation.
-        public override Vector3 GetOffsetAimingLocation() => offsetAimingLocation;
-        // GetOffsetAimingRotation.
-        public override Vector3 GetOffsetAimingRotation() => offsetAimingRotation;
-
-        // GetFieldOfViewMultiplierAim.
         public override float GetFieldOfViewMultiplierAim() => fieldOfViewMultiplierAim;
-        // GetFieldOfViewMultiplierAimWeapon.
         public override float GetFieldOfViewMultiplierAimWeapon() => fieldOfViewMultiplierAimWeapon;
 
-        // GetSprite.
-        public override Sprite GetSprite() => sprite;
-        // GetSwayMultiplier.
-        public override float GetSwayMultiplier() => swayMultiplier;
+        public override float GetMultiplierMouseSensitivity() => multiplierMouseSensitivity;
+        public override float GetMultiplierSpread() => multiplierSpread;
 
-        // Returns true if the Scope's Mesh Renderer could have this Material index.
-        private bool HasMaterialIndex()
-        {
-            //Null check.
-            if (meshRenderer == null)
-                return false;
-            
-            //Make sure that the index can exist.
-            return materialIndex < meshRenderer.materials.Length && materialIndex >= 0;
-        }
+        public override Vector3 GetOffsetAimingLocation() => offsetAimingLocation;
+        public override Vector3 GetOffsetAimingRotation() => offsetAimingRotation;
+
+
+        public override Sprite GetSprite() => sprite;
+        public override float GetSwayMultiplier() => swayMultiplier;
 
         #endregion
 
         #region METHODS
 
-        // OnAim.
-        public override void OnAim()
-        {
+        // OnAim() 和 OnAimStop() 负责控制瞄准镜的材质切换，改变瞄准镜外观
+        public override void OnAim() {
             //Make sure that the index can exist.
             if (!HasMaterialIndex())
                 return;
@@ -146,10 +121,8 @@ namespace InfimaGames.LowPolyShooterPack
             //Update Materials.
             meshRenderer.materials = materials;
         }
-        // OnAimStop.
-        public override void OnAimStop()
-        {
-            //Make sure that the index can exist.
+
+        public override void OnAimStop() {
             if (!HasMaterialIndex())
                 return;
             
@@ -159,6 +132,14 @@ namespace InfimaGames.LowPolyShooterPack
             materials[materialIndex] = materialHidden;
             //Update Materials.
             meshRenderer.materials = materials;
+        }
+
+        // Returns true if the Scope's Mesh Renderer could have this Material index.
+        private bool HasMaterialIndex() {
+            if (meshRenderer == null)
+                return false;
+            //Make sure that the index can exist.
+            return materialIndex >= 0 && materialIndex < meshRenderer.materials.Length;
         }
 
         #endregion

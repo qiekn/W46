@@ -2,28 +2,18 @@
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    // Scope Behaviour.
-    public abstract class ScopeBehaviour : MonoBehaviour
-    {
+    public abstract class ScopeBehaviour : MonoBehaviour {
         #region GETTERS
 
-        // Returns the value of multiplierMouseSensitivity.
-        // <returns></returns>
-        public abstract float GetMultiplierMouseSensitivity();
-        
-        // Returns the value of multiplierSpread.
-        // <returns></returns>
-        public abstract float GetMultiplierSpread();
-
-        // Returns the aiming location offset.
-        // <returns></returns>
-        public abstract Vector3 GetOffsetAimingLocation();
-        // Returns the aiming rotation offset.
-        // <returns></returns>
-        public abstract Vector3 GetOffsetAimingRotation();
-
+        //NOTE: Field & MouseSensitivity & Spread
         public abstract float GetFieldOfViewMultiplierAim();
         public abstract float GetFieldOfViewMultiplierAimWeapon();
+        public abstract float GetMultiplierMouseSensitivity();
+        public abstract float GetMultiplierSpread();
+
+        //NOTE: Location & Rotation
+        public abstract Vector3 GetOffsetAimingLocation();
+        public abstract Vector3 GetOffsetAimingRotation();
 
         // Returns the Sprite used on the Character's Interface.
         public abstract Sprite GetSprite();
