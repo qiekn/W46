@@ -174,8 +174,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region UNITY
         
-        protected override void Awake()
-        {
+        protected override void Awake() {
             //Get Animator.
             animator = GetComponent<Animator>();
             //Get Attachment Manager.
@@ -188,22 +187,20 @@ namespace InfimaGames.LowPolyShooterPack
             //Cache the world camera. We use this in line traces.
             playerCamera = characterBehaviour.GetCameraWorld().transform;
         }
-        protected override void Start()
-        {
+
+        protected override void Start() {
             #region Cache Attachment References
 
-            //Get Scope.
-            scopeBehaviour = attachmentManager.GetEquippedScope();
-            
-            //Get Magazine.
-            magazineBehaviour = attachmentManager.GetEquippedMagazine();
             //Get Muzzle.
             muzzleBehaviour = attachmentManager.GetEquippedMuzzle();
-
             //Get Laser.
             laserBehaviour = attachmentManager.GetEquippedLaser();
             //Get Grip.
             gripBehaviour = attachmentManager.GetEquippedGrip();
+            //Get Scope.
+            scopeBehaviour = attachmentManager.GetEquippedScope();
+            //Get Magazine.
+            magazineBehaviour = attachmentManager.GetEquippedMagazine();
 
             #endregion
 
@@ -216,8 +213,7 @@ namespace InfimaGames.LowPolyShooterPack
         #region GETTERS
 
         // GetFieldOfViewMultiplierAim.
-        public override float GetFieldOfViewMultiplierAim()
-        {
+        public override float GetFieldOfViewMultiplierAim() {
             //Make sure we don't have any issues even with a broken setup!
             if (scopeBehaviour != null) 
                 return scopeBehaviour.GetFieldOfViewMultiplierAim();
@@ -229,8 +225,7 @@ namespace InfimaGames.LowPolyShooterPack
             return 1.0f;
         }
         // GetFieldOfViewMultiplierAimWeapon.
-        public override float GetFieldOfViewMultiplierAimWeapon()
-        {
+        public override float GetFieldOfViewMultiplierAimWeapon() {
             //Make sure we don't have any issues even with a broken setup!
             if (scopeBehaviour != null) 
                 return scopeBehaviour.GetFieldOfViewMultiplierAimWeapon();
@@ -314,8 +309,7 @@ namespace InfimaGames.LowPolyShooterPack
         #region METHODS
 
         // Reload.
-        public override void Reload()
-        {
+        public override void Reload() {
             //Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
             const string boolName = "Reloading";
             animator.SetBool(boolName, true);
@@ -327,8 +321,7 @@ namespace InfimaGames.LowPolyShooterPack
             animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
         // Fire.
-        public override void Fire(float spreadMultiplier = 1.0f)
-        {
+        public override void Fire(float spreadMultiplier = 1.0f) {
             //We need a muzzle in order to fire this weapon!
             if (muzzleBehaviour == null)
                 return;
@@ -351,8 +344,7 @@ namespace InfimaGames.LowPolyShooterPack
             muzzleBehaviour.Effect();
 
             //Spawn as many projectiles as we need.
-            for (var i = 0; i < shotCount; i++)
-            {
+            for (var i = 0; i < shotCount; i++) {
                 //Determine a random spread value using all of our multipliers.
                 Vector3 spreadValue = Random.insideUnitSphere * (spread * spreadMultiplier);
                 //Remove the forward spread component, since locally this would go inside the object we're shooting!

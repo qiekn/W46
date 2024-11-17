@@ -6,16 +6,9 @@ namespace InfimaGames.LowPolyShooterPack
     {
         #region UNITY
 
-        // Awake.
         protected virtual void Awake(){}
-
-        // Start.
         protected virtual void Start(){}
-
-        // Update.
         protected virtual void Update(){}
-
-        // Late Update.
         protected virtual void LateUpdate(){}
 
         #endregion
@@ -23,14 +16,12 @@ namespace InfimaGames.LowPolyShooterPack
         #region GETTERS
 
         // Returns the sprite to use when displaying the weapon's body.
-        // <returns></returns>
         public abstract Sprite GetSpriteBody();
         // Returns the value of multiplierMovementSpeed;
         public abstract float GetMultiplierMovementSpeed();
 
-        // Returns the holster audio clip.
+        // 收枪、取枪声音
         public abstract AudioClip GetAudioClipHolster();
-        // Returns the unholster audio clip.
         public abstract AudioClip GetAudioClipUnholster();
 
         // Returns the reload audio clip.
