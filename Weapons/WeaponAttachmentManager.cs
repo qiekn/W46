@@ -45,11 +45,11 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("Determines if the ironsights should be shown on the weapon model.")]
         [SerializeField]
-        private bool scopeDefaultShow = true;
+        private bool ironSightShow = true;
         
         [Tooltip("Default Ironsight Scope!")]
         [SerializeField]
-        private ScopeBehaviour scopeDefaultBehaviour;
+        private ScopeBehaviour ironSightBehavior;
 
         [SerializeField] private int scopeIndex = -1;
         [SerializeField] private ScopeBehaviour[] scopeArray;
@@ -79,19 +79,15 @@ namespace InfimaGames.LowPolyShooterPack
             laserBehaviour  = laserArray.SelectAndSetActive(laserIndex);         // Select Laser!
             gripBehaviour   = gripArray.SelectAndSetActive(gripIndex);           // Select Grip!
             scopeBehaviour  = scopeArray.SelectAndSetActive(scopeIndex);         // Select Scope!
-            scopeBehaviour.gameObject.SetActive(scopeDefaultShow);               // Toogle IronSight!
+            ironSightBehavior.gameObject.SetActive(ironSightShow);        // Toogle IronSight!
             magazineBehaviour = magazineArray.SelectAndSetActive(magazineIndex); // Select Magazine!
-            //Check if we have no scope. This could happen if we have an incorrect index.
-            if (scopeBehaviour == null) {
-                scopeBehaviour = scopeDefaultBehaviour;
-            }
         }        
 
         public override MuzzleBehaviour GetEquippedMuzzle() => muzzleBehaviour;
         public override LaserBehaviour GetEquippedLaser() => laserBehaviour;
         public override GripBehaviour GetEquippedGrip() => gripBehaviour;
         public override ScopeBehaviour GetEquippedScope() => scopeBehaviour;
-        public override ScopeBehaviour GetEquippedScopeDefault() => scopeDefaultBehaviour;
+        public override ScopeBehaviour GetEquippedScopeDefault() => ironSightBehavior;
         public override MagazineBehaviour GetEquippedMagazine() => magazineBehaviour;
     }
 }
