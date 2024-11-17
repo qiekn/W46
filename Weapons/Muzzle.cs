@@ -3,9 +3,7 @@ using System.Collections;
 
 namespace InfimaGames.LowPolyShooterPack
 {
-    // Muzzle.
-    public class Muzzle : MuzzleBehaviour
-    {
+    public class Muzzle : MuzzleBehaviour {
         #region FIELDS SERIALIZED
 
         [Title(label: "Settings")]
@@ -22,7 +20,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private AudioClip audioClipFire;
         
-        [Title(label: "Particles")]
+        [Title(label: "Flash Particles")]
         
         [Tooltip("Firing Particles.")]
         [SerializeField]
@@ -59,36 +57,29 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region UNITY FUNCTIONS
 
-        // Awake.
-        private void Awake()
-        {
-            //Null Check.
-            if(prefabFlashParticles != null)
-            {
-                //Instantiate Particles.
+        private void Awake() {
+            if(prefabFlashParticles != null) {
+                // Instantiate Particles.
                 GameObject spawnedParticlesPrefab = Instantiate(prefabFlashParticles, socket);
-                //Reset the position.
+                // Reset the position.
                 spawnedParticlesPrefab.transform.localPosition = default;
-                //Reset the rotation.
+                // Reset the rotation.
                 spawnedParticlesPrefab.transform.localEulerAngles = default;
                 
-                //Get Reference.
+                // Get Reference.
                 particles = spawnedParticlesPrefab.GetComponent<ParticleSystem>();
             }
 
-            //Null Check.
-            if (prefabFlashLight)
-            {
-                //Instantiate.
+            if (prefabFlashLight) {
+                // Instantiate FlashLight.
                 GameObject spawnedFlashLightPrefab = Instantiate(prefabFlashLight, socket);
-                //Reset the position.
+                // Reset the position.
                 spawnedFlashLightPrefab.transform.localPosition = flashLightOffset;
-                //Reset the rotation.
+                // Reset the rotation.
                 spawnedFlashLightPrefab.transform.localEulerAngles = default;
                 
-                //Get reference.
                 flashLight = spawnedFlashLightPrefab.GetComponent<Light>();
-                //Disable.
+                // Disable.
                 flashLight.enabled = false;
             }
         }
@@ -97,18 +88,16 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region GETTERS
 
-        public override void Effect()
-        {
-            //Try to play the fire particles from the muzzle!
+        public override void Effect() {
+            // Try to play the fire particles from the muzzle!
             if(particles != null)
                 particles.Emit(flashParticlesCount);
 
-            //Make sure that we have a light to flash!
-            if (flashLight != null)
-            {
-                //Enable the light.
+            // Make sure that we have a light to flash!
+            if (flashLight != null) {
+                // Enable the light.
                 flashLight.enabled = true;
-                //Disable the light after a few seconds.
+                // Disable the light after a few seconds.
                 StartCoroutine(nameof(DisableLight));
             }
         }
@@ -128,11 +117,10 @@ namespace InfimaGames.LowPolyShooterPack
 
         #region METHODS
 
-        private IEnumerator DisableLight()
-        {
-            //Wait.
+        private IEnumerator DisableLight() {
+            // Wait.
             yield return new WaitForSeconds(flashLightDuration);
-            //Disable.
+            // Disable.
             flashLight.enabled = false;
         }
 
