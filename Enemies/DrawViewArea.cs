@@ -1,52 +1,48 @@
-using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class DrawViewArea : MonoBehaviour {
-    LineRenderer lineRenderer;
+  public GameObject enemyObject;
+  public Material matGreen;
+  public Material matRed;
 
-    public GameObject enemyObject;
-    public Material matGreen;
-    public Material matRed;
+  private Enemy enemy;
+  private LineRenderer lineRenderer;
 
-    private bool canSeePlayer;
+  float radius = 5f;       // 视野半径
+  float field = 120f;     // 视野角度
+  int segments = 120 + 2;  // 细分数量（增加两点：扇形的起点和终点）
 
-    float radius   = 5f;       // 视野半径
-    float field    = 120f;     // 视野角度
-    int   segments = 120 + 2;  // 细分数量（增加两点：扇形的起点和终点）
+  private void Start() {
+    lineRenderer = GetComponent<LineRenderer>();
+    lineRenderer.positionCount = segments;
 
-    private void Start() {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = segments;
-        var enemy = enemyObject.GetComponent<Enemy>();
-        radius = enemy.sightDistance;
-        field = enemy.fieldOfView;
-        segments = (int)field + 2;
-        //Debug.Log($"radius={radius}, field={field}, segments={segments}");
-    }
+    enemy = enemyObject.GetComponent<Enemy>();
 
-    private void Update() {
-        Draw();
-    }
+    radius = enemy.SightDistance;
+    field = enemy.FieldOfView;
+    segments = (int)field + 2;
+    //Debug.Log($"radius={radius}, field={field}, segments={segments}");
+  }
 
-    public void SetState(bool flag) {
-      canSeePlayer = flag;
-    }
+  private void Update() {
+    Draw();
+  }
+
 
   private void Draw() {
     Vector3 origin = transform.position;
     origin.y = 0.1f; // 使得扇形贴近地面绘制
-    float halfField = field / 2; // 视野角度的一半
-    float angleStep = field / (segments - 2); // 每段的角度增量
-    Quaternion rotation = transform.rotation; // 敌人当前的朝向
+    float halfField = field / 2;
+    float angleStep = field / (segments - 2); // 角度步长
+    Quaternion rotation = transform.rotation; // 获取敌人自身的朝向
 
     // 修改扇形材质
-    if (canSeePlayer) {
+    if (enemy.CanSeePlayer) {
       lineRenderer.material = matRed;
     } else {
       lineRenderer.material = matGreen;
     }
-    // 设置起点和终点为敌人自身位置
+    // 设置起点和终点
     lineRenderer.SetPosition(0, origin);
     lineRenderer.SetPosition(segments - 1, origin);
 

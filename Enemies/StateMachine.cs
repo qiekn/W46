@@ -3,7 +3,6 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour {
 
   public BaseState activeState;
-  public PatrolState patrolState;
 
   [Tooltip("The time you stay on way point")]
   [SerializeField]
@@ -20,9 +19,7 @@ public class StateMachine : MonoBehaviour {
 
   //NOTE: Methods
   public void Initialise() {
-    patrolState = new PatrolState();
-    patrolState.delay = patrolDelay;
-    ChangeState(patrolState);
+    ChangeState(new PatrolState(patrolDelay));
   }
 
   public void ChangeState(BaseState newState) {
