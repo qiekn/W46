@@ -41,8 +41,13 @@ public class Enemy : MonoBehaviour
                 if (angleToPlayer >= -fieldOfView / 2 && angleToPlayer <= fieldOfView / 2) {
                     // Debug
                     Ray ray = new Ray(transform.position, targetDirection);
-                    Debug.DrawRay(ray.origin, ray.direction * sightDistance, Color.red);
-                    return true;
+                    RaycastHit hitInfo = new RaycastHit();
+                    if (Physics.Raycast(ray, out hitInfo, sightDistance)) {
+                        if (hitInfo.transform.gameObject == player) {
+                            Debug.DrawRay(ray.origin, ray.direction * sightDistance, Color.red);
+                            return true;
+                        }
+                    }
                 }
             }
         }
