@@ -25,7 +25,7 @@ namespace InfimaGames.LowPolyShooterPack
 
         // Returns the equipped scope.
         public abstract ScopeBehaviour GetEquippedScope();
-        // Returns the equipped scope default.
+        // Returns the equipped scope default(机瞄).
         public abstract ScopeBehaviour GetEquippedScopeDefault();
         
         // Returns the equipped magazine.

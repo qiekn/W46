@@ -3,7 +3,7 @@
 namespace InfimaGames.LowPolyShooterPack
 {
     // Weapon Attachment Manager. Handles equipping and storing a Weapon's Attachments.
-    // Attachmeents: Muzzle, Laser, Grip, Scope, Magazine
+    // Attachments: Muzzle, Laser, Grip, Scope, Magazine
     public class WeaponAttachmentManager : WeaponAttachmentManagerBehaviour {
         #region FIELDS SERIALIZED
 
@@ -47,7 +47,7 @@ namespace InfimaGames.LowPolyShooterPack
         [SerializeField]
         private bool ironSightShow = true;
         
-        [Tooltip("Default Ironsight Scope!")]
+        [Tooltip("Ironsight Scope!")]
         [SerializeField]
         private ScopeBehaviour ironSightBehavior;
 
