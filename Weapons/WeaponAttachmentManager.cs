@@ -78,8 +78,11 @@ namespace InfimaGames.LowPolyShooterPack
             muzzleBehaviour = muzzleArray.SelectAndSetActive(muzzleIndex);       // Select Muzzle!
             laserBehaviour  = laserArray.SelectAndSetActive(laserIndex);         // Select Laser!
             gripBehaviour   = gripArray.SelectAndSetActive(gripIndex);           // Select Grip!
+            ironSightBehavior.gameObject.SetActive(ironSightShow);               // Toogle IronSight!
             scopeBehaviour  = scopeArray.SelectAndSetActive(scopeIndex);         // Select Scope!
-            ironSightBehavior.gameObject.SetActive(ironSightShow);        // Toogle IronSight!
+            if (scopeBehaviour == null) {
+                scopeBehaviour = ironSightBehavior; // Use iron sights when there is no scope.
+            }
             magazineBehaviour = magazineArray.SelectAndSetActive(magazineIndex); // Select Magazine!
         }        
 
