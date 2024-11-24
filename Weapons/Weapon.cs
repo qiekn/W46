@@ -259,10 +259,10 @@ namespace InfimaGames.LowPolyShooterPack {
             animator.SetBool(boolName, true);
 
             //Try Play Reload Sound.
-            // ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
+            ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
 
             //Play Reload Animation.
-            // animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
+            animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
 
         public override void Fire(float spreadMultiplier = 1.0f) {
@@ -305,8 +305,15 @@ namespace InfimaGames.LowPolyShooterPack {
 
         public override void FillAmmunition(int amount) {
             //Update the value by a certain amount.
-            //Zero means full(Reloading).
-            ammunitionCurrent = amount != 0 ? Mathf.Clamp(ammunitionCurrent + amount, 0, GetAmmunitionTotal()) : magazineBehaviour.GetAmmunitionTotal();
+            if (amount > 0) {
+                ammunitionCurrent = Mathf.Clamp(ammunitionCurrent + amount, 0, GetAmmunitionTotal());
+            } else { // Minus Number means full(Reloading).
+                if (HasAmmunition()) {
+                    ammunitionCurrent = GetAmmunitionTotal() + 1; // extra 1 for not empty reload.
+                } else {
+                    ammunitionCurrent = GetAmmunitionTotal();
+                }
+            }
         }
         
         public override void SetSlideBack(int back) {
