@@ -5,13 +5,11 @@ using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-namespace InfimaGames.LowPolyShooterPack
-{
+namespace InfimaGames.LowPolyShooterPack {
 	// Main Character Component. This component handles the most important functions of the character, and interfaces
 	// with basically every part of the asset, it is the hub where it all converges.
 	[RequireComponent(typeof(CharacterKinematics))]
-	public sealed class Character : CharacterBehaviour
-	{
+	public sealed class Character : CharacterBehaviour {
 		#region FIELDS SERIALIZED
 
 		[Title(label: "References")]
@@ -19,13 +17,13 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("The character's LowerWeapon component.")]
 		[SerializeField]
 		private LowerWeapon lowerWeapon;
-		
+
 		[Title(label: "Inventory")]
-		
+
 		[Tooltip("Determines the index of the weapon to equip when the game starts.")]
 		[SerializeField]
 		private int weaponIndexEquippedAtStart;
-		
+
 		[Tooltip("Inventory.")]
 		[SerializeField]
 		private InventoryBehaviour inventory;
@@ -39,17 +37,17 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("Total amount of grenades at start.")]
 		[SerializeField]
 		private int grenadeTotal = 10;
-		
+
 		[Tooltip("Grenade spawn offset from the character's camera.")]
 		[SerializeField]
 		private float grenadeSpawnOffset = 1.0f;
-		
+
 		[Tooltip("Grenade Prefab. Spawned when throwing a grenade.")]
 		[SerializeField]
 		private GameObject grenadePrefab;
-		
+
 		[Title(label: "Knife")]
-		
+
 		[Tooltip("Knife GameObject.")]
 		[SerializeField]
 		private GameObject knife;
@@ -65,7 +63,7 @@ namespace InfimaGames.LowPolyShooterPack
 		private Camera cameraDepth;
 
 		[Title(label: "Animation")]
-		
+
 		[Tooltip("Determines how smooth the turning animation is.")]
 		[SerializeField]
 		private float dampTimeTurning = 0.4f;
@@ -85,9 +83,9 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("Determines how fast the character's weapons are aimed.")]
 		[SerializeField]
 		private float aimingSpeedMultiplier = 1.0f;
-		
+
 		[Title(label: "Animation Procedural")]
-		
+
 		[Tooltip("Character Animator.")]
 		[SerializeField]
 		private Animator characterAnimator;
@@ -107,7 +105,7 @@ namespace InfimaGames.LowPolyShooterPack
 		private float fieldOfViewWeapon = 55.0f;
 
 		[Title(label: "Audio Clips")]
-		
+
 		[Tooltip("Melee Audio Clips.")]
 		[SerializeField]
 		private AudioClip[] audioClipsMelee;
@@ -125,7 +123,7 @@ namespace InfimaGames.LowPolyShooterPack
 		[Tooltip("If true, the aiming input has to be held to be active.")]
 		[SerializeField]
 		private bool holdToAim = true;
-		
+
 		#endregion
 
 		#region FIELDS
@@ -138,10 +136,10 @@ namespace InfimaGames.LowPolyShooterPack
 		private bool running;
 		// True if the character has its weapon holstered.
 		private bool holstered;
-		
+
 		// Last Time.time at which we shot.
 		private float lastShotTime;
-		
+
 		// Overlay Layer Index. Useful for playing things like firing animations.
 		private int layerOverlay;
 		// Holster Layer Index. Used to play holster animations.
@@ -151,25 +149,25 @@ namespace InfimaGames.LowPolyShooterPack
 
 		// Cached Movement Component. Used in order to access some of the movement-related properties.
 		private MovementBehaviour movementBehaviour;
-		
+
 		// The currently equipped weapon.
 		private WeaponBehaviour equippedWeapon;
 		// The equipped weapon's attachment manager.
 		private WeaponAttachmentManagerBehaviour weaponAttachmentManager;
-		
+
 		// The scope equipped on the character's weapon.
 		private ScopeBehaviour equippedWeaponScope;
 		// The magazine equipped on the character's weapon.
 		private MagazineBehaviour equippedWeaponMagazine;
-		
+
 		// True if the character is reloading.
 		private bool reloading;
-		
+
 		// True if the character is inspecting its weapon.
 		private bool inspecting;
 		// True if the character is throwing a grenade.
 		private bool throwingGrenade;
-		
+
 		// True if the character is meleeing.
 		private bool meleeing;
 
@@ -186,7 +184,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		// Look Axis Values.
 		private Vector2 axisLook;
-		
+
 		// Look Axis Values.
 		private Vector2 axisMovement;
 
@@ -216,8 +214,7 @@ namespace InfimaGames.LowPolyShooterPack
 		#region UNITY
 
 		// Awake.
-		protected override void Awake()
-		{
+		protected override void Awake() {
 			#region Lock Cursor
 
 			//Always make sure that our cursor is locked when the game starts!
@@ -237,15 +234,14 @@ namespace InfimaGames.LowPolyShooterPack
 			RefreshWeaponSetup();
 		}
 		// Start.
-		protected override void Start()
-		{
+		protected override void Start() {
 			//Max out the grenades.
 			grenadeCount = grenadeTotal;
-			
+
 			//Hide knife. We do this so we don't see a giant knife stabbing through the character's hands all the time!
 			if (knife != null)
 				knife.SetActive(false);
-			
+
 			//Cache a reference to the holster layer's index.
 			layerHolster = characterAnimator.GetLayerIndex("Layer Holster");
 			//Cache a reference to the action layer's index.
@@ -255,16 +251,14 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Update.
-		protected override void Update()
-		{
+		protected override void Update() {
 			//Match Aim.
 			aiming = holdingButtonAim && CanAim();
 			//Match Run.
 			running = holdingButtonRun && CanRun();
 
 			//Check if we're aiming.
-			switch (aiming)
-			{
+			switch (aiming) {
 				//Just Started.
 				case true when !wasAiming:
 					equippedWeaponScope.OnAim();
@@ -276,17 +270,13 @@ namespace InfimaGames.LowPolyShooterPack
 			}
 
 			//Holding the firing button.
-			if (holdingButtonFire)
-			{
+			if (holdingButtonFire) {
 				//Check.
-				if (CanPlayAnimationFire() && equippedWeapon.HasAmmunition() && equippedWeapon.IsAutomatic())
-				{
+				if (CanPlayAnimationFire() && equippedWeapon.HasAmmunition() && equippedWeapon.IsAutomatic()) {
 					//Has fire rate passed.
 					if (Time.time - lastShotTime > 60.0f / equippedWeapon.GetRateOfFire())
 						Fire();
-				}
-				else
-				{
+				} else {
 					//Reset fired shots, so recoil/spread does not just stay at max when we've run out
 					//of ammo already!
 					shotsFired = 0;
@@ -298,7 +288,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Update Aiming Alpha. We need to get this here because we're using the Animator to interpolate the aiming value.
 			aimingAlpha = characterAnimator.GetFloat(AHashes.AimingAlpha);
-			
+
 			//Interpolate the crouching alpha. We do this here as a quick and dirty shortcut, but there's definitely better ways to do this.
 			crouchingAlpha = Mathf.Lerp(crouchingAlpha, movementBehaviour.IsCrouching() ? 1.0f : 0.0f, Time.deltaTime * 12.0f);
 			//Interpolate the running alpha. We do this here as a quick and dirty shortcut, but there's definitely better ways to do this.
@@ -306,12 +296,12 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Running Field Of View Multiplier.
 			float runningFieldOfView = Mathf.Lerp(1.0f, fieldOfViewRunningMultiplier, runningAlpha);
-			
+
 			//Interpolate the world camera's field of view based on whether we are aiming or not.
 			cameraWorld.fieldOfView = Mathf.Lerp(fieldOfView, fieldOfView * equippedWeapon.GetFieldOfViewMultiplierAim(), aimingAlpha) * runningFieldOfView;
 			//Interpolate the depth camera's field of view based on whether we are aiming or not.
 			cameraDepth.fieldOfView = Mathf.Lerp(fieldOfViewWeapon, fieldOfViewWeapon * equippedWeapon.GetFieldOfViewMultiplierAimWeapon(), aimingAlpha);
-			
+
 			//Save Aiming Value.
 			wasAiming = aiming;
 		}
@@ -319,13 +309,12 @@ namespace InfimaGames.LowPolyShooterPack
 		#endregion
 
 		#region GETTERS
-		
+
 		// GetShotsFired.
 		public override int GetShotsFired() => shotsFired;
 
 		// IsLowered.
-		public override bool IsLowered()
-		{
+		public override bool IsLowered() {
 			//Weapons are never lowered if we don't even have a LowerWeapon component.
 			if (lowerWeapon == null)
 				return false;
@@ -362,7 +351,7 @@ namespace InfimaGames.LowPolyShooterPack
 
 		// IsThrowingGrenade.
 		public override bool IsThrowingGrenade() => throwingGrenade;
-		
+
 		// IsMeleeing.
 		// <returns></returns>
 		public override bool IsMeleeing() => meleeing;
@@ -371,10 +360,10 @@ namespace InfimaGames.LowPolyShooterPack
 		public override bool IsAiming() => aiming;
 		// IsCursorLocked.
 		public override bool IsCursorLocked() => cursorLocked;
-		
+
 		// IsTutorialTextVisible.
 		public override bool IsTutorialTextVisible() => tutorialTextVisible;
-		
+
 		// GetInputMovement.
 		public override Vector2 GetInputMovement() => axisMovement;
 		// GetInputLook.
@@ -384,7 +373,7 @@ namespace InfimaGames.LowPolyShooterPack
 		public override AudioClip[] GetAudioClipsGrenadeThrow() => audioClipsGrenadeThrow;
 		// GetAudioClipsMelee.
 		public override AudioClip[] GetAudioClipsMelee() => audioClipsMelee;
-		
+
 		// IsInspecting.
 		public override bool IsInspecting() => inspecting;
 		// IsHoldingButtonFire. 
@@ -395,22 +384,19 @@ namespace InfimaGames.LowPolyShooterPack
 		#region METHODS
 
 		// Updates all the animator properties for this frame.
-		private void UpdateAnimator()
-		{
+		private void UpdateAnimator() {
 			#region Reload Stop
 
 			//Check if we're currently reloading cycled.
 			const string boolNameReloading = "Reloading";
-			if (characterAnimator.GetBool(boolNameReloading))
-			{
+			if (characterAnimator.GetBool(boolNameReloading)) {
 				//If we only have one more bullet to reload, then we can change the boolean already.
-				if (equippedWeapon.GetAmmunitionTotal() - equippedWeapon.GetAmmunitionCurrent() < 1)
-				{
+				if (equippedWeapon.GetAmmunitionTotal() - equippedWeapon.GetAmmunitionCurrent() < 1) {
 					//Update the character animator.
 					characterAnimator.SetBool(boolNameReloading, false);
 					//Update the weapon animator.
 					equippedWeapon.GetAnimator().SetBool(boolNameReloading, false);
-				}	
+				}
 			}
 
 			#endregion
@@ -422,10 +408,10 @@ namespace InfimaGames.LowPolyShooterPack
 			//Movement Value. This value affects absolute movement. Aiming movement uses this, as opposed to per-axis movement.
 			float movementValue = Mathf.Clamp01(Mathf.Abs(axisMovement.x) + Mathf.Abs(axisMovement.y));
 			characterAnimator.SetFloat(AHashes.Movement, movementValue, dampTimeLocomotion, Time.deltaTime);
-			
+
 			//Aiming Speed Multiplier.
 			characterAnimator.SetFloat(AHashes.AimingSpeedMultiplier, aimingSpeedMultiplier);
-			
+
 			//Turning Value. This determines how much of the turning animation to play based on our current look rotation.
 			characterAnimator.SetFloat(AHashes.Turning, Mathf.Abs(axisLook.x), dampTimeTurning, Time.deltaTime);
 
@@ -433,7 +419,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.SetFloat(AHashes.Horizontal, axisMovement.x, dampTimeLocomotion, Time.deltaTime);
 			//Vertical Movement Float.
 			characterAnimator.SetFloat(AHashes.Vertical, axisMovement.y, dampTimeLocomotion, Time.deltaTime);
-			
+
 			//Update the aiming value, but use interpolation. This makes sure that things like firing can transition properly.
 			characterAnimator.SetFloat(AHashes.AimingAlpha, Convert.ToSingle(aiming), dampTimeAiming, Time.deltaTime);
 
@@ -451,7 +437,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.SetFloat(AHashes.PlayRateLocomotionBackwards, movementBehaviour.GetMultiplierBackwards(), 0.2f, Time.deltaTime);
 
 			#endregion
-			
+
 			//Update Animator Aiming.
 			characterAnimator.SetBool(AHashes.Aim, aiming);
 			//Update Animator Running.
@@ -460,20 +446,18 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.SetBool(AHashes.Crouching, movementBehaviour.IsCrouching());
 		}
 		// Plays the inspect animation.
-		private void Inspect()
-		{
+		private void Inspect() {
 			//State.
 			inspecting = true;
 			//Play.
 			characterAnimator.CrossFade("Inspect", 0.0f, layerActions, 0);
 		}
 		// Fires the character's weapon.
-		private void Fire()
-		{
+		private void Fire() {
 			//Increase shots fired. We use this value to increase the spread, and also to apply recoil, so
 			//it is very important that we keep it up to date.
 			shotsFired++;
-			
+
 			//Save the shot time, so we can calculate the fire rate correctly.
 			lastShotTime = Time.time;
 			//Fire the weapon! Make sure that we also pass the scope's spread multiplier if we're aiming.
@@ -491,16 +475,15 @@ namespace InfimaGames.LowPolyShooterPack
 			if (!equippedWeapon.HasAmmunition() && equippedWeapon.GetAutomaticallyReloadOnEmpty())
 				StartCoroutine(nameof(TryReloadAutomatic));
 		}
-		
+
 		// Plays the reload animation.
-		private void PlayReloadAnimation()
-		{
+		private void PlayReloadAnimation() {
 			#region Animation
 
 			//Get the name of the animation state to play, which depends on weapon settings, and ammunition!
 			string stateName = equippedWeapon.HasCycledReload() ? "Reload Open" :
 				(equippedWeapon.HasAmmunition() ? "Reload" : "Reload Empty");
-			
+
 			//Play the animation state!
 			characterAnimator.Play(stateName, layerActions, 0.0f);
 
@@ -508,13 +491,12 @@ namespace InfimaGames.LowPolyShooterPack
 
 			//Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
 			characterAnimator.SetBool(AHashes.Reloading, reloading = true);
-			
+
 			//Reload.
 			equippedWeapon.Reload();
 		}
 		// Plays The Reload Animation After A Delay. Helpful to reload automatically after running out of ammunition.
-		private IEnumerator TryReloadAutomatic()
-		{
+		private IEnumerator TryReloadAutomatic() {
 			//Yield.
 			yield return new WaitForSeconds(equippedWeapon.GetAutomaticallyReloadOnEmptyDelay());
 
@@ -523,11 +505,9 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Equip Weapon Coroutine.
-		private IEnumerator Equip(int index = 0)
-		{
+		private IEnumerator Equip(int index = 0) {
 			//Only if we're not holstered, holster. If we are already, we don't need to wait.
-			if(!holstered)
-			{
+			if (!holstered) {
 				//Holster.
 				SetHolstered(holstering = true);
 				//Wait.
@@ -537,35 +517,33 @@ namespace InfimaGames.LowPolyShooterPack
 			SetHolstered(false);
 			//Play Unholster Animation.
 			characterAnimator.Play("Unholster", layerHolster, 0);
-			
+
 			//Equip The New Weapon.
 			inventory.Equip(index);
 			//Refresh.
 			RefreshWeaponSetup();
 		}
 		// Refresh all weapon things to make sure we're all set up!
-		private void RefreshWeaponSetup()
-		{
+		private void RefreshWeaponSetup() {
 			//Make sure we have a weapon. We don't want errors!
 			if ((equippedWeapon = inventory.GetEquipped()) == null)
 				return;
-			
+
 			//Update Animator Controller. We do this to update all animations to a specific weapon's set.
 			characterAnimator.runtimeAnimatorController = equippedWeapon.GetAnimatorController();
 
 			//Get the attachment manager so we can use it to get all the attachments!
 			weaponAttachmentManager = equippedWeapon.GetAttachmentManager();
-			if (weaponAttachmentManager == null) 
+			if (weaponAttachmentManager == null)
 				return;
-			
+
 			//Get equipped scope. We need this one for its settings!
 			equippedWeaponScope = weaponAttachmentManager.GetEquippedScope();
 			//Get equipped magazine. We need this one for its settings!
 			equippedWeaponMagazine = weaponAttachmentManager.GetEquippedMagazine();
 		}
 
-		private void FireEmpty()
-		{
+		private void FireEmpty() {
 			/*
 			 * Save Time. Even though we're not actually firing, we still need this for the fire rate between
 			 * empty shots.
@@ -575,8 +553,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterAnimator.CrossFade("Fire Empty", 0.05f, layerOverlay, 0);
 		}
 		// Updates the cursor state based on the value of the cursorLocked variable.
-		private void UpdateCursorState()
-		{
+		private void UpdateCursorState() {
 			//Update cursor visibility.
 			Cursor.visible = !cursorLocked;
 			//Update cursor lock state.
@@ -584,56 +561,51 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Plays The Grenade Throwing Animation.
-		private void PlayGrenadeThrow()
-		{
+		private void PlayGrenadeThrow() {
 			//Start State.
 			throwingGrenade = true;
-			
+
 			//Play Normal.
 			characterAnimator.CrossFade("Grenade Throw", 0.15f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Left"), 0.0f);
-					
+
 			//Play Additive.
 			characterAnimator.CrossFade("Grenade Throw", 0.05f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Right"), 0.0f);
 		}
 		// Play The Melee Animation.
-		private void PlayMelee()
-		{
+		private void PlayMelee() {
 			//Start State.
 			meleeing = true;
-			
+
 			//Play Normal.
 			characterAnimator.CrossFade("Knife Attack", 0.05f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Left"), 0.0f);
-			
+
 			//Play Additive.
 			characterAnimator.CrossFade("Knife Attack", 0.05f,
 				characterAnimator.GetLayerIndex("Layer Actions Arm Right"), 0.0f);
 		}
-		
+
 		// Changes the value of bolting, and updates the animator.
-		private void UpdateBolt(bool value)
-		{
+		private void UpdateBolt(bool value) {
 			//Update.
 			characterAnimator.SetBool(AHashes.Bolt, bolting = value);
 		}
 		// Updates the "Holstered" variable, along with the Character's Animator value.
-		private void SetHolstered(bool value = true)
-		{
+		private void SetHolstered(bool value = true) {
 			//Update value.
 			holstered = value;
-			
+
 			//Update Animator.
 			const string boolName = "Holstered";
-			characterAnimator.SetBool(boolName, holstered);	
+			characterAnimator.SetBool(boolName, holstered);
 		}
-		
+
 		#region ACTION CHECKS
 
 		// Can Fire.
-		private bool CanPlayAnimationFire()
-		{
+		private bool CanPlayAnimationFire() {
 			//Block.
 			if (holstered || holstering)
 				return false;
@@ -655,8 +627,7 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Determines if we can play the reload animation.
-		private bool CanPlayAnimationReload()
-		{
+		private bool CanPlayAnimationReload() {
 			//No reloading!
 			if (reloading)
 				return false;
@@ -676,18 +647,17 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block while inspecting.
 			if (inspecting)
 				return false;
-			
+
 			//Block Full Reloading if needed.
 			if (!equippedWeapon.CanReloadWhenFull() && equippedWeapon.IsFull())
 				return false;
-			
+
 			//Return.
 			return true;
 		}
-		
+
 		// Returns true if the character is able to throw a grenade.
-		private bool CanPlayAnimationGrenadeThrow()
-		{
+		private bool CanPlayAnimationGrenadeThrow() {
 			//Block.
 			if (holstered || holstering)
 				return false;
@@ -703,18 +673,17 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (inspecting)
 				return false;
-			
+
 			//We need to have grenades!
 			if (!grenadesUnlimited && grenadeCount == 0)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
 
 		// Returns true if the Character is able to melee attack.
-		private bool CanPlayAnimationMelee()
-		{
+		private bool CanPlayAnimationMelee() {
 			//Block.
 			if (holstered || holstering)
 				return false;
@@ -730,15 +699,14 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (inspecting)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
 
 		// Returns true if the character is able to holster their weapon.
 		// <returns></returns>
-		private bool CanPlayAnimationHolster()
-		{
+		private bool CanPlayAnimationHolster() {
 			//Block.
 			if (meleeing || throwingGrenade)
 				return false;
@@ -750,15 +718,14 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (inspecting)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
 
 		// Returns true if the Character can change their Weapon.
 		// <returns></returns>
-		private bool CanChangeWeapon()
-		{
+		private bool CanChangeWeapon() {
 			//Block.
 			if (holstering)
 				return false;
@@ -774,14 +741,13 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (inspecting)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
 
 		// Returns true if the Character can play the Inspect animation.
-		private bool CanPlayAnimationInspect()
-		{
+		private bool CanPlayAnimationInspect() {
 			//Block.
 			if (holstered || holstering)
 				return false;
@@ -797,15 +763,14 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if (inspecting)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
 
 		// Returns true if the Character can Aim.
 		// <returns></returns>
-		private bool CanAim()
-		{
+		private bool CanAim() {
 			//Block.
 			if (holstered || inspecting)
 				return false;
@@ -817,15 +782,14 @@ namespace InfimaGames.LowPolyShooterPack
 			//Block.
 			if ((!equippedWeapon.CanReloadAimed() && reloading) || holstering)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
-		
+
 		// Returns true if the character can run.
 		// <returns></returns>
-		private bool CanRun()
-		{
+		private bool CanRun() {
 			//Block.
 			if (inspecting || bolting)
 				return false;
@@ -849,7 +813,7 @@ namespace InfimaGames.LowPolyShooterPack
 			//This blocks running backwards, or while fully moving sideways.
 			if (axisMovement.y <= 0 || Math.Abs(Mathf.Abs(axisMovement.x) - 1) < 0.01f)
 				return false;
-			
+
 			//Return.
 			return true;
 		}
@@ -859,43 +823,39 @@ namespace InfimaGames.LowPolyShooterPack
 		#region INPUT
 
 		// Fire.
-		public void OnTryFire(InputAction.CallbackContext context)
-		{
+		public void OnTryFire(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
 
 			//Switch.
-			switch (context)
-			{
+			switch (context) {
 				//Started.
-				case {phase: InputActionPhase.Started}:
+				case { phase: InputActionPhase.Started }:
 					//Hold.
 					holdingButtonFire = true;
-					
+
 					//Restart the shots.
 					shotsFired = 0;
 					break;
 				//Performed.
-				case {phase: InputActionPhase.Performed}:
+				case { phase: InputActionPhase.Performed }:
 					//Ignore if we're not allowed to actually fire.
 					if (!CanPlayAnimationFire())
 						break;
-					
+
 					//Check.
-					if (equippedWeapon.HasAmmunition())
-					{
+					if (equippedWeapon.HasAmmunition()) {
 						//Check.
-						if (equippedWeapon.IsAutomatic())
-						{
+						if (equippedWeapon.IsAutomatic()) {
 							//Reset fired shots, so recoil/spread does not just stay at max when we've run out
 							//of ammo already!
 							shotsFired = 0;
-							
+
 							//Break.
 							break;
 						}
-							
+
 						//Has fire rate passed.
 						if (Time.time - lastShotTime > 60.0f / equippedWeapon.GetRateOfFire())
 							Fire();
@@ -905,7 +865,7 @@ namespace InfimaGames.LowPolyShooterPack
 						FireEmpty();
 					break;
 				//Canceled.
-				case {phase: InputActionPhase.Canceled}:
+				case { phase: InputActionPhase.Canceled }:
 					//Stop Hold.
 					holdingButtonFire = false;
 
@@ -914,22 +874,22 @@ namespace InfimaGames.LowPolyShooterPack
 					break;
 			}
 		}
+
 		// Reload.
-		public void OnTryPlayReload(InputAction.CallbackContext context)
-		{
+		// 处理玩家尝试重新装填武器的输入
+		public void OnTryPlayReload(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Block.
 			if (!CanPlayAnimationReload())
 				return;
-			
+
 			//Switch.
-			switch (context)
-			{
+			switch (context) {
 				//Performed.
-				case {phase: InputActionPhase.Performed}:
+				case { phase: InputActionPhase.Performed }:
 					//Play Animation.
 					PlayReloadAnimation();
 					break;
@@ -937,60 +897,54 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Inspect.
-		public void OnTryInspect(InputAction.CallbackContext context)
-		{
+		public void OnTryInspect(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Block.
 			if (!CanPlayAnimationInspect())
 				return;
-			
+
 			//Switch.
-			switch (context)
-			{
+			switch (context) {
 				//Performed.
-				case {phase: InputActionPhase.Performed}:
+				case { phase: InputActionPhase.Performed }:
 					//Play Animation.
 					Inspect();
 					break;
 			}
 		}
+
 		// Aiming.
-		public void OnTryAiming(InputAction.CallbackContext context)
-		{
-			//Block while the cursor is unlocked.
+		public void OnTryAiming(InputAction.CallbackContext context) {
+			// Block while the cursor is unlocked.
+			// 确保在特定条件下（如游戏进行中）才能进行瞄准。
 			if (!cursorLocked)
 				return;
 
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Started.
-				case InputActionPhase.Started:
-					//Started.
-					if(holdToAim)
+				case InputActionPhase.Started: // InputActionPhase 是一个枚举类型
+					if (holdToAim)
 						holdingButtonAim = true;
 					break;
 				//Performed.
 				case InputActionPhase.Performed:
-					//Performed.
 					if (!holdToAim)
 						holdingButtonAim = !holdingButtonAim;
 					break;
 				//Canceled.
 				case InputActionPhase.Canceled:
-					//Canceled.
-					if(holdToAim)
+					if (holdToAim)
 						holdingButtonAim = false;
 					break;
 			}
 		}
 
 		// Holster.
-		public void OnTryHolster(InputAction.CallbackContext context)
-		{
+		public void OnTryHolster(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
@@ -998,15 +952,13 @@ namespace InfimaGames.LowPolyShooterPack
 			//Go back if we cannot even play the holster animation.
 			if (!CanPlayAnimationHolster())
 				return;
-			
+
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Started. This is here so we unholster with a tap, instead of a hold.
 				case InputActionPhase.Started:
 					//Only if holstered.
-					if (holstered)
-					{
+					if (holstered) {
 						//Unholster.
 						SetHolstered(false);
 						//Holstering.
@@ -1022,16 +974,15 @@ namespace InfimaGames.LowPolyShooterPack
 					break;
 			}
 		}
+
 		// Throw Grenade. 
-		public void OnTryThrowGrenade(InputAction.CallbackContext context)
-		{
+		public void OnTryThrowGrenade(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Performed.
 				case InputActionPhase.Performed:
 					//Try Play.
@@ -1040,17 +991,15 @@ namespace InfimaGames.LowPolyShooterPack
 					break;
 			}
 		}
-		
+
 		// Melee.
-		public void OnTryMelee(InputAction.CallbackContext context)
-		{
+		public void OnTryMelee(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Performed.
 				case InputActionPhase.Performed:
 					//Try Play.
@@ -1060,46 +1009,42 @@ namespace InfimaGames.LowPolyShooterPack
 			}
 		}
 		// Run. 
-		public void OnTryRun(InputAction.CallbackContext context)
-		{
+		public void OnTryRun(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Performed.
 				case InputActionPhase.Performed:
 					//Use this if we're using run toggle.
-					if(!holdToRun)
+					if (!holdToRun)
 						holdingButtonRun = !holdingButtonRun;
 					break;
 				//Started.
 				case InputActionPhase.Started:
 					//Start.
-					if(holdToRun)
+					if (holdToRun)
 						holdingButtonRun = true;
 					break;
 				//Canceled.
 				case InputActionPhase.Canceled:
 					//Stop.
-					if(holdToRun)
+					if (holdToRun)
 						holdingButtonRun = false;
 					break;
 			}
 		}
 
 		// Jump. 
-		public void OnTryJump(InputAction.CallbackContext context)
-		{
+		public void OnTryJump(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
 
 			//Switch.
-			switch (context.phase)
-			{
+			switch (context.phase) {
 				//Performed.
 				case InputActionPhase.Performed:
 					//Jump.
@@ -1108,44 +1053,40 @@ namespace InfimaGames.LowPolyShooterPack
 			}
 		}
 		// Next Inventory Weapon.
-		public void OnTryInventoryNext(InputAction.CallbackContext context)
-		{
+		public void OnTryInventoryNext(InputAction.CallbackContext context) {
 			//Block while the cursor is unlocked.
 			if (!cursorLocked)
 				return;
-			
+
 			//Null Check.
 			if (inventory == null)
 				return;
-			
+
 			//Switch.
-			switch (context)
-			{
+			switch (context) {
 				//Performed.
-				case {phase: InputActionPhase.Performed}:
+				case { phase: InputActionPhase.Performed }:
 					//Get the index increment direction for our inventory using the scroll wheel direction. If we're not
 					//actually using one, then just increment by one.
 					float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
-					
+
 					//Get the next index to switch to.
 					int indexNext = scrollValue > 0 ? inventory.GetNextIndex() : inventory.GetLastIndex();
 					//Get the current weapon's index.
 					int indexCurrent = inventory.GetEquippedIndex();
-					
+
 					//Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
 					if (CanChangeWeapon() && (indexCurrent != indexNext))
 						StartCoroutine(nameof(Equip), indexNext);
 					break;
 			}
 		}
-		
-		public void OnLockCursor(InputAction.CallbackContext context)
-		{
+
+		public void OnLockCursor(InputAction.CallbackContext context) {
 			//Switch.
-			switch (context)
-			{
+			switch (context) {
 				//Performed.
-				case {phase: InputActionPhase.Performed}:
+				case { phase: InputActionPhase.Performed }:
 					//Toggle the cursor locked value.
 					cursorLocked = !cursorLocked;
 					//Update the cursor's state.
@@ -1153,16 +1094,14 @@ namespace InfimaGames.LowPolyShooterPack
 					break;
 			}
 		}
-		
+
 		// Movement.
-		public void OnMove(InputAction.CallbackContext context)
-		{
+		public void OnMove(InputAction.CallbackContext context) {
 			//Read.
 			axisMovement = cursorLocked ? context.ReadValue<Vector2>() : default;
 		}
 		// Look.
-		public void OnLook(InputAction.CallbackContext context)
-		{
+		public void OnLook(InputAction.CallbackContext context) {
 			//Read.
 			axisLook = cursorLocked ? context.ReadValue<Vector2>() : default;
 
@@ -1179,15 +1118,13 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 
 		// Called in order to update the tutorial text value.
-		public void OnUpdateTutorial(InputAction.CallbackContext context)
-		{
+		public void OnUpdateTutorial(InputAction.CallbackContext context) {
 			//Switch.
-			tutorialTextVisible = context switch
-			{
+			tutorialTextVisible = context switch {
 				//Started. Show the tutorial.
-				{phase: InputActionPhase.Started} => true,
+				{ phase: InputActionPhase.Started } => true,
 				//Canceled. Hide the tutorial.
-				{phase: InputActionPhase.Canceled} => false,
+				{ phase: InputActionPhase.Canceled } => false,
 				//Default.
 				_ => tutorialTextVisible
 			};
@@ -1198,22 +1135,19 @@ namespace InfimaGames.LowPolyShooterPack
 		#region ANIMATION EVENTS
 
 		// EjectCasing.
-		public override void EjectCasing()
-		{
+		public override void EjectCasing() {
 			//Notify the weapon.
-			if(equippedWeapon != null)
+			if (equippedWeapon != null)
 				equippedWeapon.EjectCasing();
 		}
 		// FillAmmunition.
-		public override void FillAmmunition(int amount)
-		{
+		public override void FillAmmunition(int amount) {
 			//Notify the weapon to fill the ammunition by the amount.
-			if(equippedWeapon != null)
+			if (equippedWeapon != null)
 				equippedWeapon.FillAmmunition(amount);
 		}
 		// Grenade.
-		public override void Grenade()
-		{
+		public override void Grenade() {
 			//Make sure that the grenade is valid, otherwise we'll get errors.
 			if (grenadePrefab == null)
 				return;
@@ -1221,11 +1155,11 @@ namespace InfimaGames.LowPolyShooterPack
 			//Make sure we have a camera!
 			if (cameraWorld == null)
 				return;
-			
+
 			//Remove Grenade.
-			if(!grenadesUnlimited)
+			if (!grenadesUnlimited)
 				grenadeCount--;
-			
+
 			//Get Camera Transform.
 			Transform cTransform = cameraWorld.transform;
 			//Calculate the throwing location.
@@ -1235,62 +1169,53 @@ namespace InfimaGames.LowPolyShooterPack
 			Instantiate(grenadePrefab, position, cTransform.rotation);
 		}
 		// SetActiveMagazine.
-		public override void SetActiveMagazine(int active)
-		{
+		public override void SetActiveMagazine(int active) {
 			//Set magazine gameObject active.
 			equippedWeaponMagazine.gameObject.SetActive(active != 0);
 		}
 
 		// AnimationEndedBolt.
-		public override void AnimationEndedBolt()
-		{
+		public override void AnimationEndedBolt() {
 			//Update.
 			UpdateBolt(false);
 		}
 		// AnimationEndedReload.
-		public override void AnimationEndedReload()
-		{
+		public override void AnimationEndedReload() {
 			//Stop reloading!
 			reloading = false;
 		}
 
 		// AnimationEndedGrenadeThrow.
-		public override void AnimationEndedGrenadeThrow()
-		{
+		public override void AnimationEndedGrenadeThrow() {
 			//Stop Grenade Throw.
 			throwingGrenade = false;
 		}
 		// AnimationEndedMelee.
-		public override void AnimationEndedMelee()
-		{
+		public override void AnimationEndedMelee() {
 			//Stop Melee.
 			meleeing = false;
 		}
 
 		// AnimationEndedInspect.
-		public override void AnimationEndedInspect()
-		{
+		public override void AnimationEndedInspect() {
 			//Stop Inspecting.
 			inspecting = false;
 		}
 		// AnimationEndedHolster.
-		public override void AnimationEndedHolster()
-		{
+		public override void AnimationEndedHolster() {
 			//Stop Holstering.
 			holstering = false;
 		}
 
 		// SetSlideBack.
-		public override void SetSlideBack(int back)
-		{
+		public override void SetSlideBack(int back) {
 			//Set slide back.
 			if (equippedWeapon != null)
 				equippedWeapon.SetSlideBack(back);
 		}
 
 		// SetActiveKnife.
-		public override void SetActiveKnife(int active)
-		{
+		public override void SetActiveKnife(int active) {
 			//Set Active.
 			knife.SetActive(active != 0);
 		}
