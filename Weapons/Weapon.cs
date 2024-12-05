@@ -254,14 +254,14 @@ namespace InfimaGames.LowPolyShooterPack {
         #region METHODS
 
         public override void Reload() {
-            //Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
+            // Set Reloading Bool. This helps cycled reloads know when they need to stop cycling.
             const string boolName = "Reloading";
             animator.SetBool(boolName, true);
 
-            //Try Play Reload Sound.
+            // Try Play Reload Sound.
             ServiceLocator.Current.Get<IAudioManagerService>().PlayOneShot(HasAmmunition() ? audioClipReload : audioClipReloadEmpty, new AudioSettings(1.0f, 0.0f, false));
 
-            //Play Reload Animation.
+            // Play Reload Animation.
             animator.Play(cycledReload ? "Reload Open" : (HasAmmunition() ? "Reload" : "Reload Empty"), 0, 0.0f);
         }
 
